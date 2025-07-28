@@ -1,13 +1,24 @@
 import React, { JSX } from 'react';
 import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
-import type {TagsListItem} from '@docusaurus/theme-common';
-import {listTagsByLetters} from '@docusaurus/theme-common';
-import type {Props} from '@theme/BlogTagsListPage';
+type Tag = {
+  label: string;
+  permalink: string;
+  count: number;
+};
+// Local implementation to group tags by their first letter
+function listTagsByLetters(tags: Tag[]): Record<string, Tag[]> {
+  return tags.reduce((acc, tag) => {
+    const letter = tag.label[0].toUpperCase();
+    if (!acc[letter]) acc[letter] = [];
+    acc[letter].push(tag);
+    return acc;
+  }, {} as Record<string, Tag[]>);
+}
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
-function TagLetterEntryItem({letterEntry}: {letterEntry: [string, TagsListItem[]]}) {
+function TagLetterEntryItem({letterEntry}: {letterEntry: [string, Tag[]]}) {
   const [letter, tags] = letterEntry;
   return (
     <article>
@@ -29,7 +40,7 @@ function TagLetterEntryItem({letterEntry}: {letterEntry: [string, TagsListItem[]
   );
 }
 
-export default function TagsListByLetter({tags}: {tags: TagsListItem[]}): JSX.Element {
+export default function TagsListByLetter({tags}: {tags: Tag[]}): JSX.Element {
   const title = translate({
     message: 'Tags',
     description: 'The title of the tag list page',

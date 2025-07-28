@@ -22,10 +22,11 @@ const config: Config = {
 
   // GitHub pages deployment config.
   organizationName: 'ShigureDD', // Usually your GitHub org/user name.
-  projectName: 'blog', // Usually your repo name.
+  projectName: 'shiguredd.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages', // Branch that GitHub Pages will deploy from
+  trailingSlash: false,
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -34,6 +35,16 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+    path: 'i18n',
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+        path: 'en',
+      },
+    },
   },
 
   presets: [
@@ -41,6 +52,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          path: 'docs',
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -64,7 +76,6 @@ const config: Config = {
           readingTime: ({content, defaultReadingTime, locale}) =>
             defaultReadingTime({content, options: {wordsPerMinute: 300}, locale}),
           feedOptions: {
-            type: ['rss', 'atom'],
             title: "Tom Lam's Blog",
             description: 'A blog about software development and technology',
             copyright: `Copyright © ${new Date().getFullYear()} Tom Lam`,
@@ -154,26 +165,22 @@ const config: Config = {
             {
               label: 'LinkedIn',
               href: 'https://linkedin.com/in/tom-l-8a8b641a5',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/your-twitter',
-            },
+            }
           ],
         },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'RSS Feed',
-              to: '/blog/rss.xml',
-            },
-            {
-              label: 'Sitemap',
-              to: '/sitemap.xml',
-            },
-          ],
-        },
+        // {
+        //   title: 'More',
+        //   items: [
+        //     {
+        //       label: 'RSS Feed',
+        //       to: '/blog/rss.xml',
+        //     },
+        //     {
+        //       label: 'Sitemap',
+        //       to: '/sitemap.xml',
+        //     },
+        //   ],
+        // },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Tom Lam. Built with Docusaurus.`,
     },

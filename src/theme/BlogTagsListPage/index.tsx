@@ -1,7 +1,6 @@
 import React, { JSX } from 'react';
 import BlogLayout from '@theme/BlogLayout';
 import Link from '@docusaurus/Link';
-import { ThemeClassNames } from '@docusaurus/theme-common';
 import Translate from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
@@ -38,14 +37,18 @@ function formatDate(dateString?: string) {
   });
 }
 
-export default function BlogTagsListPage({ items, metadata }: BlogTagsListPageProps) {
+export default function BlogTagsListPage(props: any) {
+  const { items, metadata } = props || {};
+  if (!metadata) {
+    return <div style={{color:'red',padding:'2rem'}}>Error: Blog tags metadata is missing. This page cannot be rendered. Please check your custom BlogTagsListPage implementation.</div>;
+  }
   const { allTagsPath, name: tagName, count } = metadata;
   
   return (
     <BlogLayout
       title={`Posts tagged with "${tagName}"`}
       description={`Blog posts tagged with "${tagName}"`}
-      wrapperClassName={ThemeClassNames.wrapper.blogPages}
+      wrapperClassName={styles.blogPages}
     >
       <div className={styles.header}>
         <h1>
