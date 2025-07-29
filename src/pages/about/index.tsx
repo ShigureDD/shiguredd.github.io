@@ -104,11 +104,6 @@ const About = (): JSX.Element => {
                 </p>
                 <div className={styles.ctaButtons}>
                   <Link
-                    className="button button--primary button--lg"
-                    to="/contact">
-                    Contact Me
-                  </Link>
-                  <Link
                     className="button button--outline button--lg"
                     to="/blog">
                     Read My Blog

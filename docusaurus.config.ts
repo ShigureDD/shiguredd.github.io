@@ -11,7 +11,15 @@ const config: Config = {
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: {
+      removeLegacyPostBuildHeadAttribute: false,
+      useCssCascadeLayers: false,
+    },
+    experimental_faster: {
+      rspackBundler: false,
+      rspackPersistentCache: false,
+    },
+
   },
 
   // Set the production url of your site here
@@ -26,7 +34,7 @@ const config: Config = {
   deploymentBranch: 'gh-pages', // Branch that GitHub Pages will deploy from
   trailingSlash: false,
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -35,16 +43,6 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
-    path: 'i18n',
-    localeConfigs: {
-      en: {
-        label: 'English',
-        direction: 'ltr',
-        htmlLang: 'en-US',
-        calendar: 'gregory',
-        path: 'en',
-      },
-    },
   },
 
   presets: [
@@ -52,7 +50,6 @@ const config: Config = {
       'classic',
       {
         docs: {
-          path: 'docs',
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -60,7 +57,6 @@ const config: Config = {
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
-          routeBasePath: 'blog',
           blogTitle: 'Tom\'s Blog',
           blogDescription: 'A blog about software development and technology',
           postsPerPage: 5,
@@ -89,7 +85,6 @@ const config: Config = {
           },
           editUrl: 'https://github.com/ShigureDD/blog/tree/main/',
           authorsMapPath: 'blog/authors.yml',
-          truncateMarker: /<!--truncate-->/,
           onInlineTags: 'warn',
           onInlineAuthors: 'ignore',  // Suppress warning about inline authors
           onUntruncatedBlogPosts: 'warn',
@@ -120,13 +115,8 @@ const config: Config = {
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           to: '/about',
-          position: 'left',
           label: 'About',
-        },
-        {
-          to: '/projects',
           position: 'left',
-          label: 'Projects',
         },
         {
           href: 'https://github.com/ShigureDD',
@@ -148,11 +138,7 @@ const config: Config = {
             {
               label: 'About',
               to: '/about',
-            },
-            {
-              label: 'Projects',
-              to: '/projects',
-            },
+            }
           ],
         },
         {
@@ -187,6 +173,9 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    colorMode: {
+      defaultMode: 'dark'
     },
   } satisfies Preset.ThemeConfig,
 };
