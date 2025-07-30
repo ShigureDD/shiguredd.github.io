@@ -3351,7 +3351,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:^1, @types/prismjs@npm:^1.26.0":
+"@types/prismjs@npm:^1.26.0":
   version: 1.26.5
   resolution: "@types/prismjs@npm:1.26.5"
   checksum: 10c0/5619cb449e0d8df098c8759d6f47bf8fdd510abf5dbdfa999e55c6a2545efbd1e209cc85a33d8d9f4ff2898089a1a6d9a70737c9baffaae635c46852c40d384a
@@ -8607,10 +8607,8 @@ __metadata:
     "@docusaurus/tsconfig": "npm:^3.8.1"
     "@docusaurus/types": "npm:^3.8.1"
     "@mdx-js/react": "npm:^3.0.0"
-    "@types/prismjs": "npm:^1"
     clsx: "npm:^2.0.0"
     prism-react-renderer: "npm:^2.4.1"
-    prismjs: "npm:^1.30.0"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
     typescript: "npm:^5.8.3"
@@ -8684,8 +8682,8 @@ __metadata:
   linkType: hard
 
 "node-gyp@npm:latest":
-  version: 11.2.0
-  resolution: "node-gyp@npm:11.2.0"
+  version: 11.3.0
+  resolution: "node-gyp@npm:11.3.0"
   dependencies:
     env-paths: "npm:^2.2.0"
     exponential-backoff: "npm:^3.1.1"
@@ -8699,7 +8697,7 @@ __metadata:
     which: "npm:^5.0.0"
   bin:
     node-gyp: bin/node-gyp.js
-  checksum: 10c0/bd8d8c76b06be761239b0c8680f655f6a6e90b48e44d43415b11c16f7e8c15be346fba0cbf71588c7cdfb52c419d928a7d3db353afc1d952d19756237d8f10b9
+  checksum: 10c0/5f4ad5a729386f7b50096efd4934b06c071dbfbc7d7d541a66d6959a7dccd62f53ff3dc95fffb60bf99d8da1270e23769f82246fcaa6c5645a70c967ae9a3398
   languageName: node
   linkType: hard
 
@@ -10012,7 +10010,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.29.0, prismjs@npm:^1.30.0":
+"prismjs@npm:^1.29.0":
   version: 1.30.0
   resolution: "prismjs@npm:1.30.0"
   checksum: 10c0/f56205bfd58ef71ccfcbcb691fd0eb84adc96c6ff21b0b69fc6fdcf02be42d6ef972ba4aed60466310de3d67733f6a746f89f2fb79c00bf217406d465b3e8f23

@@ -50,11 +50,11 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: 'sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/ShigureDD/shiguredd.github.io/tree/master/',
         },
         blog: {
           blogTitle: 'Tom\'s Blog',
@@ -83,7 +83,7 @@ const config: Config = {
               });
             },
           },
-          editUrl: 'https://github.com/ShigureDD/blog/tree/main/',
+          editUrl: 'https://github.com/ShigureDD/shiguredd.github.io/tree/master/',
           authorsMapPath: 'blog/authors.yml',
           onInlineTags: 'warn',
           onInlineAuthors: 'ignore',  // Suppress warning about inline authors
@@ -99,6 +99,12 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
     navbar: {
       title: 'Tom Lam',
       logo: {
@@ -107,10 +113,11 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          type: 'doc',
+          sidebarId: 'docs',
+          docId: 'intro',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Learn',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -175,7 +182,9 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
     colorMode: {
-      defaultMode: 'dark'
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
     },
   } satisfies Preset.ThemeConfig,
 };
