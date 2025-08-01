@@ -1,0 +1,53 @@
+---
+sidebar_position: 1
+---
+
+# Azure API Management services
+
+Azure API Management is made up of an API gateway, a management plane, and a developer portal. These components are Azure-hosted and fully managed by default. API Management is available in various tiers differing in capacity and features.
+
+## Why need API Management?
+
+API Management is needed because modern applications rely heavily on APIs to connect services, share data, and enable integrations across different platforms and teams. As the number and complexity of APIs grow, managing them becomes challenging. Here are the main reasons why API Management is important:
+
+1. **Security**: API Management provides a secure way to expose APIs to external clients. It can enforce authentication and authorization policies, rate limiting, and IP whitelisting.
+2. **Performance**: API Management can optimize API performance by caching responses, compressing data, and implementing load balancing.
+3. **Monitoring**: API Management provides visibility into API usage and performance, helping you identify and address issues before they impact your users.
+4. **Cost Management**: API Management can help you manage costs by providing tools to monitor and control API usage.
+
+
+### Security
+
+API Management provides a secure way to expose APIs to external clients. It can enforce authentication and authorization policies, rate limiting, and IP whitelisting.
+
+#### 
+
+```xml
+<policies>
+  <inbound>
+    <!-- statements to be applied to the request go here -->
+  </inbound>
+  <backend>
+    <!-- statements to be applied before the request is forwarded to 
+         the backend service go here -->
+  </backend>
+  <outbound>
+    <!-- statements to be applied to the response go here -->
+  </outbound>
+  <on-error>
+    <!-- statements to be applied if there's an error condition go here -->
+  </on-error>
+</policies>
+```
+
+### Performance
+
+API Management can optimize API performance by caching responses, compressing data, and implementing load balancing.
+
+### Monitoring
+
+API Management provides visibility into API usage and performance, helping you identify and address issues before they impact your users.
+
+### Cost Management
+
+API Management can help you manage costs by providing tools to monitor and control API usage.
