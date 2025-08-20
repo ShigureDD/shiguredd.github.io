@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Tom Lam\'s Blog',
+  title: 'ShigureDD\'s Blog',
   tagline: 'Sharing knowledge and experiences in software development',
   favicon: 'img/favicon.ico',
 
@@ -57,7 +57,7 @@ const config: Config = {
             'https://github.com/ShigureDD/shiguredd.github.io/tree/master/',
         },
         blog: {
-          blogTitle: 'Tom\'s Blog',
+          blogTitle: 'ShigureDD\'s Blog',
           blogDescription: 'A blog about software development and technology',
           postsPerPage: 5,
           showReadingTime: true,
@@ -72,9 +72,9 @@ const config: Config = {
           readingTime: ({content, defaultReadingTime, locale}) =>
             defaultReadingTime({content, options: {wordsPerMinute: 300}, locale}),
           feedOptions: {
-            title: "Tom Lam's Blog",
+            title: "ShigureDD's Blog",
             description: 'A blog about software development and technology',
-            copyright: `Copyright © ${new Date().getFullYear()} Tom Lam`,
+            copyright: `Copyright © ${new Date().getFullYear()} ShigureDD`,
             createFeedItems: async (params) => {
               const {blogPosts, defaultCreateFeedItems, ...rest} = params;
               return defaultCreateFeedItems({
@@ -106,9 +106,9 @@ const config: Config = {
       },
     },
     navbar: {
-      title: 'Tom Lam',
+      title: 'ShigureDD',
       logo: {
-        alt: 'Tom Lam Logo',
+        alt: 'ShigureDD Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -175,7 +175,7 @@ const config: Config = {
         //   ],
         // },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Tom Lam. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ShigureDD. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
