@@ -45,6 +45,11 @@ const config: Config = {
     locales: ['en'],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+  plugins: ['@docusaurus/theme-live-codeblock'],
   presets: [
     [
       'classic',
@@ -53,8 +58,8 @@ const config: Config = {
           sidebarPath: 'sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/ShigureDD/shiguredd.github.io/tree/master/',
+          // editUrl:
+          //   'https://github.com/ShigureDD/shiguredd.github.io/tree/master/',
         },
         blog: {
           blogTitle: 'ShigureDD\'s Blog',
@@ -131,6 +136,13 @@ const config: Config = {
           position: 'right',
         },
       ],
+    },
+    liveCodeBlock: {
+      /**
+       * The position of the live playground, above or under the editor
+       * Possible values: "top" | "bottom"
+       */
+      playgroundPosition: 'bottom',
     },
     footer: {
       style: 'dark',

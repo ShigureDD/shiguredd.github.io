@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Azure API Management services
 
-Azure API Management is made up of an API gateway, a management plane, and a developer portal. These components are Azure-hosted and fully managed by default. 
+Azure API Management is made up of an API gateway, a management plane, and a developer portal. These components are Azure-hosted and fully managed by default.
 
 ## Why need API Management?
 
@@ -57,13 +57,14 @@ API Management provides a secure way to expose APIs to external clients. It can 
 
 API Management can optimize API performance by caching responses, compressing data, and implementing load balancing.\
 **Internal cache is not available in the Consumption tier of Azure API Management**
+You can use **External Cache** (Azure Cache for Redis).
 
 ```xml
 <policies>
   <inbound>
     <!-- statements to be applied to the request go here -->
     <base /> <!-- Inherits inbound policies from higher scopes (e.g., global, product) -->
-    <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" caching-type="internal" allow-private-response-caching="true"> 
+    <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" caching-type="internal" allow-private-response-caching="true">
         <vary-by-query-parameter>version</vary-by-query-parameter><!-- Vary by version query parameter -->
         <vary-by-header>Accept</vary-by-header>
         <!-- should be present in most cases -->
@@ -89,7 +90,7 @@ API Management can optimize API performance by caching responses, compressing da
   <on-error>
     <!-- statements to be applied if there's an error condition go here -->
     <base />
-    
+
   </on-error>
 </policies>
 ```
@@ -108,8 +109,10 @@ For more information, see
 
 ### Monitoring
 
-API Management provides visibility into API usage and performance, helping you identify and address issues before they impact your users.
+API Management provides visibility into API usage, helping you identify and address issues before they impact your users.
+For more monitor on performance, mount **Azure Applications Insight** to the APIM.
 
 ### Cost Management
 
 API Management can help you manage costs by providing tools to monitor and control API usage.
+You can check the cost under resources group - Cost Management.
