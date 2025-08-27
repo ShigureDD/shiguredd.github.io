@@ -45,11 +45,7 @@ const config: Config = {
     locales: ['en'],
   },
 
-  markdown: {
-    mermaid: true,
-  },
-  themes: ['@docusaurus/theme-mermaid'],
-  plugins: ['@docusaurus/theme-live-codeblock'],
+  //plugins: ['@docusaurus/theme-live-codeblock'],
   presets: [
     [
       'classic',
@@ -190,6 +186,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} ShigureDD. Built with Docusaurus.`,
     },
     prism: {
+      additionalLanguages: ['csharp', 'powershell'],
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
@@ -199,6 +196,11 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
   } satisfies Preset.ThemeConfig,
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid', '@docusaurus/theme-live-codeblock'],
+  clientModules: [require.resolve('./src/scripts/mermaid_icons.js')],
 };
 
 export default config;
