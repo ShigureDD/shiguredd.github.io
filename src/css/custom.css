@@ -173,6 +173,15 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
+.danger {
+  color: var(--ifm-color-danger);
+  font-weight: 600;
+}
+.success {
+  color: var(--ifm-color-success);
+  font-weight: 600;
+}
+
 /* Code Blocks */
 pre[class*='language-'] {
   border-radius: 8px;
