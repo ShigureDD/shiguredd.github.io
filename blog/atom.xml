@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ShigureDD.github.io/blog</id>
-    <title>Tom Lam's Blog</title>
-    <updated>2025-07-18T00:00:00.000Z</updated>
+    <title>ShigureDD's Blog</title>
+    <updated>2025-08-27T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ShigureDD.github.io/blog"/>
     <subtitle>A blog about software development and technology</subtitle>
     <icon>https://ShigureDD.github.io/img/favicon.ico</icon>
-    <rights>Copyright © 2025 Tom Lam</rights>
+    <rights>Copyright © 2025 ShigureDD</rights>
+    <entry>
+        <title type="html"><![CDATA[Snowflake cost optimization strategies]]></title>
+        <id>https://ShigureDD.github.io/blog/snowflake-cost-optimization-strategies</id>
+        <link href="https://ShigureDD.github.io/blog/snowflake-cost-optimization-strategies"/>
+        <updated>2025-08-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Capital One reduced query time by 43% and projected Snowflake compute costs by 27%.]]></summary>
+        <content type="html"><![CDATA[<p>Reference:</p>
+<p><a href="https://www.capitalone.com/software/blog/snowflake-cost-optimization/" target="_blank" rel="noopener noreferrer">capital one Snowflake cost optimization strategies</a></p>]]></content>
+        <author>
+            <name>Tom Lam</name>
+            <uri>https://github.com/ShigureDD</uri>
+        </author>
+        <category label="snowflake" term="snowflake"/>
+        <category label="database" term="database"/>
+        <category label="serverless" term="serverless"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Fix mermaid in docusaurus]]></title>
+        <id>https://ShigureDD.github.io/blog/fix-mermaid-in-docusaurus</id>
+        <link href="https://ShigureDD.github.io/blog/fix-mermaid-in-docusaurus"/>
+        <updated>2025-08-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Fix mermaid in docusaurus]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-fix">How to fix<a href="https://shiguredd.github.io/blog/fix-mermaid-in-docusaurus#how-to-fix" class="hash-link" aria-label="Direct link to How to fix" title="Direct link to How to fix">​</a></h2>
+<p>In .yarnrc.yml file change <strong>nodeLinker</strong> from <strong>pnpm</strong> to <strong>node-modules</strong></p>
+<div class="language-yml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">nodeLinker</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> node</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">modules</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">pnpMode</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> strict</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">yarnPath</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> .yarn/releases/yarn</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">4.9.2.cjs</span><br></span></code></pre></div></div>
+<p>Reference:</p>
+<p><a href="https://github.com/facebook/docusaurus/issues/10645" target="_blank" rel="noopener noreferrer">Mermaid plugin breaks the document project when Yarn v4 is used and PnP is enabled</a></p>]]></content>
+        <author>
+            <name>Tom Lam</name>
+            <uri>https://github.com/ShigureDD</uri>
+        </author>
+        <category label="mermaid" term="mermaid"/>
+        <category label="Docusaurus" term="Docusaurus"/>
+        <category label="Blog" term="Blog"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Welcome to My Blog]]></title>
         <id>https://ShigureDD.github.io/blog/welcome-to-my-blog</id>
