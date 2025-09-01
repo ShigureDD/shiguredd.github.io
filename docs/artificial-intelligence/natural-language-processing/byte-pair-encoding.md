@@ -138,8 +138,9 @@ BPE provides a practical compromise between character- and word-level tokenizati
 1. [OpenAI TikToken](https://github.com/openai/tiktoken/tree/main)
 2. [Tiktokenizer](https://github.com/dqbd/tiktokenizer)
 3. [Hugging Face Tokenizers Documentation](https://huggingface.co/docs/tokenizers/)
-4. [GPT Tokenizer](https://github.com/niieani/gpt-tokenizer)
-5. [How LLMs See the World](https://blog.bytebytego.com/p/how-llms-see-the-world)
+4. [Hugging Face Byte-Pair Encoding tokenization](https://huggingface.co/learn/llm-course/chapter6/5?fw=pt)
+5. [GPT Tokenizer](https://github.com/niieani/gpt-tokenizer)
+6. [How LLMs See the World](https://blog.bytebytego.com/p/how-llms-see-the-world)
 
 ---
 

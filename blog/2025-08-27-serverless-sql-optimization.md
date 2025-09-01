@@ -1,6 +1,6 @@
 ---
 title: "Snowflake cost optimization strategies"
-slug: fix-mermaid-in-docusaurus
+slug: snowflake-cost-optimization-strategies
 authors:
   - name: Tom Lam
     title: Software Developer
@@ -8,6 +8,8 @@ authors:
     image_url: https://github.com/ShigureDD.png
 tags:
   - snowflake
+  - database
+  - serverless
 date: 2025-08-27
 description: "Learn how Capital One reduced query time by 43% and projected Snowflake compute costs by 27%."
 ---
