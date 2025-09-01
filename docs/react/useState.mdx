@@ -1,0 +1,28 @@
+---
+sidebar_position: 2
+---
+
+# UseState
+
+## Create your first Markdown Page
+
+Create a file at `src/pages/my-markdown-page.md`:
+
+```mdx title="src/pages/my-markdown-page.md"
+# My Markdown page
+
+This is a Markdown page
+```
+
+```jsx live
+function Counter() {
+  const [count, setCount] = React.useState(0);
+  return (
+    <button onClick={() => setCount((c) => c + 1)}>
+      Clicked {count} times
+    </button>
+  );
+}
+```
+
+A new page is now available at [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
