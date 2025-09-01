@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[3869],{3894:a=>{a.exports=JSON.parse('{"tag":{"label":"database","permalink":"/docs/tags/database","allTagsPath":"/docs/tags","count":1,"items":[{"id":"cloud/azure/azure-sql","title":"Azure SQL","description":"Azure SQL","permalink":"/docs/cloud/azure/azure-sql"}],"unlisted":false}}')}}]);
