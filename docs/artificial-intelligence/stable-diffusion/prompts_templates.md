@@ -107,7 +107,9 @@ A girl with long hair running in the forest, lake|reflection, full body, front v
 ## Reference
 
 [CivitAI Articles - Making Images Great Again Remastered](https://civitai.com/articles/4808/making-images-great-again-remastered)
+
 [CivitAI Articles - Neta Anime Lumina2 Drawing Model Prompt Guide](https://civitai.com/articles/16274/neta-anime-lumina2-drawing-model-prompt-guide)
+
 [CivitAI Articles - Illustrious Prompt Guide Optimized and Complete](https://civitai.com/articles/16016/illustrious-prompt-guide-optimized-and-complete)
 
 ---
