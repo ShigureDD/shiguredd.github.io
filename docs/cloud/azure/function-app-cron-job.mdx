@@ -1,0 +1,63 @@
+---
+sidebar_position: 4
+description: Azure Function App - Timer Trigger
+tags:
+  - function app
+  - serverless
+  - cron job
+  - asp.net framework
+  - Azure
+keywords:
+  - function app
+  - serverless
+  - cron job
+  - asp.net framework
+  - Azure
+last_update:
+  date: 2025/09/01 GMT+8
+  author: ShigureDD
+---
+
+# Function App - Cron Job
+
+## Cron Job Trigger 
+> To configure a timer trigger, you need to define a function.json file that specifies the schedule and other properties of the trigger. The schedule is defined using a cron expression.
+> This setting is for asp.net framework, for last version please refer to [Azure function doc](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp)
+### function.json file in Azure function app
+```json
+{
+  "bindings": [
+    {
+      "name": "mytimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *" // every 5 minutes
+    }
+  ]
+}
+```
+### csx file in Azure function app
+```csharp
+using System;
+
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    System.Diagnostics.Process process = new System.Diagnostics.Process();
+    process.StartInfo.FileName = @"D:\home\site\wwwroot\TimerTriggerCSharp1\testfunc.exe";
+    process.StartInfo.Arguments = "";
+    process.StartInfo.UseShellExecute = false;
+    process.StartInfo.RedirectStandardOutput = true;
+    process.StartInfo.RedirectStandardError = true;
+    process.Start();
+    string output = process.StandardOutput.ReadToEnd();
+    string err = process.StandardError.ReadToEnd();
+    process.WaitForExit();
+
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+
+## Reference
+[Run executable file in Azure](https://stackoverflow.com/questions/45348498/run-exe-executable-file-in-azure-function)
+[cron cheat sheet](https://arminreiter.com/2017/02/azure-functions-time-trigger-cron-cheat-sheet/)

@@ -1,5 +1,17 @@
 ---
 sidebar_position: 1
+description: Prompts Templates on stable diffusion
+author: ShigureDD
+tags:
+  - prompt
+  - stable-diffusion
+
+keywords:
+  - prompt
+  - stable-diffusion
+last_update:
+  date: 2025/09/01 GMT+8
+  author: ShigureDD
 ---
 
 # Prompts Templates
@@ -84,15 +96,15 @@ Not more than 40 negative prompts is recommended.
 
 Classic Weight Adjustment:
 
-parenthesis: (a rainy day) ⇡ **10%**
+parenthesis: (a rainy day) <span class="success">⇡ **10%**</span>
 
-parenthesis: (((((a rainy day))))) ⇡ **50%**
+parenthesis: (((((a rainy day))))) <span class="success">⇡ **50%**</span>
 
-square brackets: [a rainy day] ⇣ **10%**
+square brackets: [a rainy day] <span class="danger">⇣ **10%**</span>
 
-square brackets: [[[[[a rainy day]]]]] ⇣ **50%**
+square brackets: [[[[[a rainy day]]]]] <span class="danger">⇣ **50%**</span>
 
-explict weight: (token:1.5) ⇡ **160%**
+explict weight: (token:1.5) <span class="success">⇡ **160%**</span>
 
 ## Pipe
 
@@ -111,7 +123,3 @@ A girl with long hair running in the forest, lake|reflection, full body, front v
 [CivitAI Articles - Neta Anime Lumina2 Drawing Model Prompt Guide](https://civitai.com/articles/16274/neta-anime-lumina2-drawing-model-prompt-guide)
 
 [CivitAI Articles - Illustrious Prompt Guide Optimized and Complete](https://civitai.com/articles/16016/illustrious-prompt-guide-optimized-and-complete)
-
----
-
-_Last updated: September 2025_

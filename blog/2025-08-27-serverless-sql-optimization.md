@@ -10,7 +10,7 @@ tags:
   - snowflake
   - database
   - serverless
-date: 2025-08-27
+date: 2025-08-27 GMT+8
 description: "Learn how Capital One reduced query time by 43% and projected Snowflake compute costs by 27%."
 ---
 

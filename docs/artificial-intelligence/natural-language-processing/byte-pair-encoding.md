@@ -1,6 +1,18 @@
 ---
 sidebar_position: 1
 description: A comprehensive guide to understanding Byte Pair Encoding (BPE), a subword tokenization algorithm widely used in modern NLP models.
+author: ShigureDD
+tags:
+  - BPE
+  - Byte Pair Encoding
+  - ChatGPT
+keywords:
+  - BPE
+  - o200k_base
+  - tiktoken
+last_update:
+  date: 2025/09/01 GMT+8
+  author: ShigureDD
 ---
 
 # Byte Pair Encoding (BPE)

@@ -10,7 +10,7 @@ tags:
   - mermaid
   - docusaurus
   - blog
-date: 2025-08-26
+date: 2025-08-26 GMT+8
 description: "Fix mermaid in docusaurus"
 ---
 

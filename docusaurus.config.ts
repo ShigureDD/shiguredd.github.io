@@ -52,6 +52,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: 'sidebars.ts',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -186,7 +188,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} ShigureDD. Built with Docusaurus.`,
     },
     prism: {
-      additionalLanguages: ['csharp', 'powershell'],
+      additionalLanguages: ["aspnet", "bash", "css", "csharp", "cshtml", "diff", "git", "java", "javascript", "json", "markup-templating", "powershell", "php", "python", "sql", "toml", "typescript"],
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
