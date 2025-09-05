@@ -39,7 +39,7 @@ export default function CustomFooter( Props: React.HTMLAttributes<HTMLElement> )
           <TickerTape />
         </>
       )}
-      <footer className="text-[var(--ifm-footer-color)] pb-8">
+      <footer className="text-[var(--ifm-footer-color)]">
         <div className="container container-fluid">
           <div className="row flex justify-center items-center">
             <div className="col text-center">
