@@ -144,47 +144,47 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Explore',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'About',
-              to: '/about',
-            }
-          ],
-        },
-        {
-          title: 'Connect',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/ShigureDD',
-            },
-            {
-              label: 'LinkedIn',
-              href: 'https://linkedin.com/in/tom-l-8a8b641a5',
-            }
-          ],
-        },
-        // {
-        //   title: 'More',
-        //   items: [
-        //     {
-        //       label: 'RSS Feed',
-        //       to: '/blog/rss.xml',
-        //     },
-        //     {
-        //       label: 'Sitemap',
-        //       to: '/sitemap.xml',
-        //     },
-        //   ],
-        // },
-      ],
+      // links: [
+      //   {
+      //     title: 'Explore',
+      //     items: [
+      //       {
+      //         label: 'Blog',
+      //         to: '/blog',
+      //       },
+      //       {
+      //         label: 'About',
+      //         to: '/about',
+      //       }
+      //     ],
+      //   },
+      //   {
+      //     title: 'Connect',
+      //     items: [
+      //       {
+      //         label: 'GitHub',
+      //         href: 'https://github.com/ShigureDD',
+      //       },
+      //       {
+      //         label: 'LinkedIn',
+      //         href: 'https://linkedin.com/in/tom-l-8a8b641a5',
+      //       }
+      //     ],
+      //   },
+      //   // {
+      //   //   title: 'More',
+      //   //   items: [
+      //   //     {
+      //   //       label: 'RSS Feed',
+      //   //       to: '/blog/rss.xml',
+      //   //     },
+      //   //     {
+      //   //       label: 'Sitemap',
+      //   //       to: '/sitemap.xml',
+      //   //     },
+      //   //   ],
+      //   // },
+      // ],
       copyright: `Copyright © ${new Date().getFullYear()} ShigureDD. Built with Docusaurus.`,
     },
     prism: {
@@ -197,12 +197,14 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
+    
   } satisfies Preset.ThemeConfig,
   markdown: {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid', '@docusaurus/theme-live-codeblock'],
   clientModules: [require.resolve('./src/scripts/mermaid_icons.js')],
+  plugins: ["./src/plugins/tailwind-config.js"],
 };
 
 export default config;
