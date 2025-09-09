@@ -26,6 +26,5 @@ pnpMode: strict
 yarnPath: .yarn/releases/yarn-4.9.2.cjs
 ```
 
-Reference:
-
+Reference:\
 [Mermaid plugin breaks the document project when Yarn v4 is used and PnP is enabled](https://github.com/facebook/docusaurus/issues/10645)
