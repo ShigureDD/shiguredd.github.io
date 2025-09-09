@@ -14,6 +14,5 @@ date: 2025-08-27 GMT+8
 description: "Learn how Capital One reduced query time by 43% and projected Snowflake compute costs by 27%."
 ---
 
-Reference:
-
+Reference:\
 [capital one Snowflake cost optimization strategies](https://www.capitalone.com/software/blog/snowflake-cost-optimization/)

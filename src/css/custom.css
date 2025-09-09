@@ -1,7 +1,9 @@
 /**
  * Custom styles for Tom Lam's Blog
  */
+@import "tailwindcss";
 
+@custom-variant dark (&:is([data-theme="dark"] *));
 /* Base Variables */
 :root {
   --ifm-color-primary: #3a5fcd;
