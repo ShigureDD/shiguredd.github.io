@@ -29,7 +29,7 @@ description: "See how to fix lag onHEVC/H.265 files with PotPlayer."
 Download [LavFilters](https://github.com/nevcairiel/lavfilters/releases)
 
 Add LavFilters in PotPlayer
-![2025-09-09-add-lavfilters](../static/img/blog/2025-09-09-potplayer-add-lavfilter.png)
+![2025-09-09-add-lavfilters](../static/img/blog/2025-09-09-potplayer-add-lavfilters.png)
 
 ## 3. Change PotPlayer Decoder
 
