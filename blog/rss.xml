@@ -4,19 +4,46 @@
         <title>ShigureDD's Blog</title>
         <link>https://ShigureDD.github.io/blog</link>
         <description>A blog about software development and technology</description>
-        <lastBuildDate>Wed, 27 Aug 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 09 Sep 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2025 ShigureDD</copyright>
+        <item>
+            <title><![CDATA[How to fix lag on HEVC/H.265 Files with PotPlayer]]></title>
+            <link>https://ShigureDD.github.io/blog/potplayer-lag-on-hevc</link>
+            <guid>https://ShigureDD.github.io/blog/potplayer-lag-on-hevc</guid>
+            <pubDate>Tue, 09 Sep 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[See how to fix lag onHEVC/H.265 files with PotPlayer.]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-download-opencodec">1. Download <a href="https://potplayer.org/en/opencodec.html" target="_blank" rel="noopener noreferrer">OpenCodec</a><a href="https://shiguredd.github.io/blog/potplayer-lag-on-hevc#1-download-opencodec" class="hash-link" aria-label="Direct link to 1-download-opencodec" title="Direct link to 1-download-opencodec">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="2025-09-09-fix-potplayer-lag-on-hevc" src="https://shiguredd.github.io/assets/images/2025-09-09-fix-potplayer-lag-on-hevc-857ce8bc44c5b0477c140911d076dda6.png" width="453" height="166" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-install-opencodec">2. Install OpenCodec<a href="https://shiguredd.github.io/blog/potplayer-lag-on-hevc#2-install-opencodec" class="hash-link" aria-label="Direct link to 2. Install OpenCodec" title="Direct link to 2. Install OpenCodec">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="2025-09-09-open-codec-for-potplayer" src="https://shiguredd.github.io/assets/images/2025-09-09-open-codec-for-potplayer-e459709dfc0fadce2845b0a92ff99ee8.png" width="499" height="388" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="21-lavfilters">2.1 LavFilters<a href="https://shiguredd.github.io/blog/potplayer-lag-on-hevc#21-lavfilters" class="hash-link" aria-label="Direct link to 2.1 LavFilters" title="Direct link to 2.1 LavFilters">​</a></h2>
+<p>Download <a href="https://github.com/nevcairiel/lavfilters/releases" target="_blank" rel="noopener noreferrer">LavFilters</a></p>
+<p>Add LavFilters in PotPlayer
+<img decoding="async" loading="lazy" alt="2025-09-09-add-lavfilters" src="https://shiguredd.github.io/assets/images/2025-09-09-potplayer-add-lavfilters-befc7d3b8573325b39b43a3239476c00.png" width="1504" height="561" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-change-potplayer-decoder">3. Change PotPlayer Decoder<a href="https://shiguredd.github.io/blog/potplayer-lag-on-hevc#3-change-potplayer-decoder" class="hash-link" aria-label="Direct link to 3. Change PotPlayer Decoder" title="Direct link to 3. Change PotPlayer Decoder">​</a></h2>
+<p>Open PotPlayer &gt; Settings &gt; Performance &gt; Filters control &gt; Video Decoder
+<img decoding="async" loading="lazy" alt="2025-09-09-change-decoder" src="https://shiguredd.github.io/assets/images/2025-09-09-change-decoder-611b62330bdce79b3b005cfa234fbef4.png" width="493" height="462" class="img_ev3q">
+Reference:<br>
+<a href="https://potplayer.org/en/opencodec.html" target="_blank" rel="noopener noreferrer">OpenCodec for PotPlayer</a><br>
+<a href="https://github.com/nevcairiel/lavfilters/releases" target="_blank" rel="noopener noreferrer">Lavfilters</a><br>
+<a href="https://www.free-codecs.com/guides/how-to-play-hevc-h265-files-with-potplayer.htm" target="_blank" rel="noopener noreferrer">how-to-play-hevc-h265-files-with-potplayer</a></p>]]></content:encoded>
+            <category>PotPlayer</category>
+            <category>hevc</category>
+            <category>decoding</category>
+            <category>lag</category>
+            <category>lavfilters</category>
+        </item>
         <item>
             <title><![CDATA[Snowflake cost optimization strategies]]></title>
             <link>https://ShigureDD.github.io/blog/snowflake-cost-optimization-strategies</link>
             <guid>https://ShigureDD.github.io/blog/snowflake-cost-optimization-strategies</guid>
             <pubDate>Wed, 27 Aug 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Learn how Capital One reduced query time by 43% and projected Snowflake compute costs by 27%.]]></description>
-            <content:encoded><![CDATA[<p>Reference:</p>
-<p><a href="https://www.capitalone.com/software/blog/snowflake-cost-optimization/" target="_blank" rel="noopener noreferrer">capital one Snowflake cost optimization strategies</a></p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>Reference:<br>
+<a href="https://www.capitalone.com/software/blog/snowflake-cost-optimization/" target="_blank" rel="noopener noreferrer">capital one Snowflake cost optimization strategies</a></p>]]></content:encoded>
             <category>snowflake</category>
             <category>database</category>
             <category>serverless</category>
@@ -30,8 +57,8 @@
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-fix">How to fix<a href="https://shiguredd.github.io/blog/fix-mermaid-in-docusaurus#how-to-fix" class="hash-link" aria-label="Direct link to How to fix" title="Direct link to How to fix">​</a></h2>
 <p>In .yarnrc.yml file change <strong>nodeLinker</strong> from <strong>pnpm</strong> to <strong>node-modules</strong></p>
 <div class="language-yml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">nodeLinker</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> node</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">modules</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">pnpMode</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> strict</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">yarnPath</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> .yarn/releases/yarn</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">4.9.2.cjs</span><br></span></code></pre></div></div>
-<p>Reference:</p>
-<p><a href="https://github.com/facebook/docusaurus/issues/10645" target="_blank" rel="noopener noreferrer">Mermaid plugin breaks the document project when Yarn v4 is used and PnP is enabled</a></p>]]></content:encoded>
+<p>Reference:<br>
+<a href="https://github.com/facebook/docusaurus/issues/10645" target="_blank" rel="noopener noreferrer">Mermaid plugin breaks the document project when Yarn v4 is used and PnP is enabled</a></p>]]></content:encoded>
             <category>mermaid</category>
             <category>Docusaurus</category>
             <category>Blog</category>
