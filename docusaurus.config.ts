@@ -204,7 +204,15 @@ const config: Config = {
   },
   themes: ['@docusaurus/theme-mermaid', '@docusaurus/theme-live-codeblock'],
   clientModules: [require.resolve('./src/scripts/mermaid_icons.js')],
-  plugins: ["./src/plugins/tailwind-config.js"],
+  plugins: [
+    "./src/plugins/tailwind-config.js",  
+    [
+    '@docusaurus/plugin-google-gtag',
+    {
+      trackingID: 'G-JE0YTYV6Y9', // Replace with your Google Analytics Measurement ID
+      anonymizeIP: true,
+    },
+  ],],
 };
 
 export default config;
