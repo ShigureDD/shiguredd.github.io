@@ -6,6 +6,10 @@ on:
       - master
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+env:
+  # Setting an environment variable with the value of a configuration variable
+  API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+  APPLICATION_ID: ${{secrets.ALGOLIA_APPLICATION_ID}}
 
 jobs:
   deploy:
@@ -39,3 +43,9 @@ jobs:
           # You can swap them out with your own user credentials.
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Run the Docker container
+        env:
+          ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        run: docker run -e ALGOLIA_APPLICATION_ID -e ALGOLIA_API_KEY  -e "CONFIG=$(cat config.json)" algolia/docsearch-scraper

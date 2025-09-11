@@ -197,6 +197,12 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
+    algolia: {
+      apiKey: process.env.API_KEY,
+      indexName: "docusaurus-github-io",
+      appId: process.env.APPLICATION_ID,
+      contextualSearch: true,
+    },
     
   } satisfies Preset.ThemeConfig,
   markdown: {
