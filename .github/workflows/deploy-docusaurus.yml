@@ -8,8 +8,8 @@ on:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 env:
   # Setting an environment variable with the value of a configuration variable
-  API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-  APPLICATION_ID: ${{secrets.ALGOLIA_APPLICATION_ID}}
+  API_KEY: ${{vars.ALGOLIA_API_KEY}}
+  APPLICATION_ID: ${{vars.ALGOLIA_APPLICATION_ID}}
 
 jobs:
   deploy:
