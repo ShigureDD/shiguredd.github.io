@@ -23,7 +23,10 @@ jobs:
 
       - name: Build website
         run: yarn build
-
+        env:
+          # Pass in env vars for Docusaurus config if needed
+          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: Deploy to GitHub Pages
@@ -39,3 +42,9 @@ jobs:
           # You can swap them out with your own user credentials.
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Run the Docker container
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        run: docker run -e ALGOLIA_APP_ID -e ALGOLIA_API_KEY  -e "CONFIG=$(cat config.json)" algolia/docsearch-scraper
