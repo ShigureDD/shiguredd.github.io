@@ -212,7 +212,8 @@ const config: Config = {
   themes: ['@docusaurus/theme-mermaid', '@docusaurus/theme-live-codeblock'],
   clientModules: [require.resolve('./src/scripts/mermaid_icons.js')],
   plugins: [
-    "./src/plugins/tailwind-config.js",  
+    "./src/plugins/tailwind-config.js",
+    "./src/plugins/alias-config.js", 
     [
     '@docusaurus/plugin-google-gtag',
     {

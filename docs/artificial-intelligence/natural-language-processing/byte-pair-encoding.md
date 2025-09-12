@@ -153,7 +153,3 @@ BPE provides a practical compromise between character- and word-level tokenizati
 4. [Hugging Face Byte-Pair Encoding tokenization](https://huggingface.co/learn/llm-course/chapter6/5?fw=pt)
 5. [GPT Tokenizer](https://github.com/niieani/gpt-tokenizer)
 6. [How LLMs See the World](https://blog.bytebytego.com/p/how-llms-see-the-world)
-
----
-
-_Last updated: August 2025_
