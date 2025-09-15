@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type * as Redocusaurus from 'redocusaurus';
 import 'dotenv/config';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -33,7 +34,7 @@ const config: Config = {
   organizationName: 'ShigureDD', // Usually your GitHub org/user name.
   projectName: 'shiguredd.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages', // Branch that GitHub Pages will deploy from
-  trailingSlash: false,
+  //trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -98,6 +99,35 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
+    [
+      'redocusaurus',
+      {
+        openapi: {
+          // Folder to scan for *.openapi.yaml files
+          path: 'openapi',
+          routeBasePath: '/api',
+        },
+        specs: [
+         // Optionally provide individual files/urls to load
+          // {
+          //   // Pass it a path to a local OpenAPI YAML file
+          //   spec: 'openapi/using-single-yaml.openapi.yaml',
+          //   id: 'from-manual-file',
+          // },
+          // You can also pass it an OpenAPI spec URL
+          {
+            spec: 'https://redocly.github.io/redoc/openapi.yaml',
+            id: 'from-remote-file',
+            route: '/api/from-remote-file/',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#1890ff',
+        },
+      },
+    ] satisfies Redocusaurus.PresetEntry,
   ],
 
   themeConfig: {
@@ -118,16 +148,34 @@ const config: Config = {
       items: [
         {
           type: 'doc',
-          sidebarId: 'docs',
+          id: 'docs',
           docId: 'intro',
           position: 'left',
           label: 'Learn',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/blog', label: 'Blog', position: 'left'},
         {
           to: '/about',
           label: 'About',
           position: 'left',
+        },
+        {
+          label: 'Redoc',
+          position: 'left',
+          items: [
+            {
+              label: 'All',
+              to: '/api',
+            },
+            {
+              label: 'Using Single YAML',
+              to: '/api/using-single-yaml/',
+            },
+            {
+              label: 'Using Remote URL',
+              to: '/api/from-remote-file/',
+            },
+          ],
         },
         {
           href: 'https://github.com/ShigureDD',
@@ -189,7 +237,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} ShigureDD. Built with Docusaurus.`,
     },
     prism: {
-      additionalLanguages: ["aspnet", "bash", "css", "csharp", "cshtml", "diff", "git", "java", "javascript", "json", "markup-templating", "powershell", "php", "python", "sql", "toml", "typescript"],
+      additionalLanguages: ["markup","jsx","tsx","swift","kotlin","objectivec","js-extras","reason","rust","graphql","yaml","go","cpp","markdown","python","json"],
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
@@ -216,11 +264,12 @@ const config: Config = {
     "./src/plugins/alias-config.js", 
     [
     '@docusaurus/plugin-google-gtag',
-    {
+      {
       trackingID: 'G-JE0YTYV6Y9', // Replace with your Google Analytics Measurement ID
       anonymizeIP: true,
-    },
-  ],],
+      },
+    ],
+  ],
 };
 
 export default config;
