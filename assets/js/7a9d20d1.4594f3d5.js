@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[3899],{97918:a=>{a.exports=JSON.parse('{"tag":{"label":"dapper","permalink":"/docs/tags/dapper","allTagsPath":"/docs/tags","count":1,"items":[{"id":"dotNet/dal","title":"Data Access Layer","description":"Data Access Layer in .NET","permalink":"/docs/dotNet/dal"}],"unlisted":false}}')}}]);

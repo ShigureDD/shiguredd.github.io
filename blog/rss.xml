@@ -4,11 +4,197 @@
         <title>ShigureDD's Blog</title>
         <link>https://ShigureDD.github.io/blog</link>
         <description>A blog about software development and technology</description>
-        <lastBuildDate>Tue, 09 Sep 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 09 Dec 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2025 ShigureDD</copyright>
+        <item>
+            <title><![CDATA[Critical Security Vulnerability in Next.js]]></title>
+            <link>https://ShigureDD.github.io/blog/nextjs-rsc-cve</link>
+            <guid>https://ShigureDD.github.io/blog/nextjs-rsc-cve</guid>
+            <pubDate>Tue, 09 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[ritical vulnerability has been identified in the React Server Components in Next.js]]></description>
+            <content:encoded><![CDATA[<p><strong>Published:</strong> December 3rd, 2025<br>
+<strong>CVSS Score:</strong> 10.0 (Critical)<br>
+<strong>Source:</strong> <a href="https://nextjs.org/blog/CVE-2025-66478" target="_blank" rel="noopener noreferrer">Next.js Security Advisory</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="overview">Overview<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>A critical vulnerability has been identified in the React Server Components (RSC) protocol that can allow remote code execution (RCE) when processing attacker-controlled requests in unpatched environments. This vulnerability originates from the upstream React implementation (<a href="https://www.cve.org/CVERecord?id=CVE-2025-55182" target="_blank" rel="noopener noreferrer">CVE-2025-55182</a>).</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="impact">Impact<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#impact" class="hash-link" aria-label="Direct link to Impact" title="Direct link to Impact" translate="no">​</a></h2>
+<p>The vulnerable RSC protocol allowed untrusted inputs to influence server-side execution behavior. Under specific conditions, an attacker could craft requests that trigger unintended server execution paths, resulting in remote code execution.</p>
+<p><strong>All users should upgrade to a patched version immediately.</strong></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="affected-versions">Affected Versions<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#affected-versions" class="hash-link" aria-label="Direct link to Affected Versions" title="Direct link to Affected Versions" translate="no">​</a></h2>
+<p>Applications using React Server Components with the App Router are affected when running:</p>
+<ul>
+<li>Next.js 15.x</li>
+<li>Next.js 16.x</li>
+<li>Next.js 14.3.0-canary.77 and later canary releases</li>
+</ul>
+<p><strong>Not affected:</strong></p>
+<ul>
+<li>Next.js 13.x</li>
+<li>Next.js 14.x stable</li>
+<li>Pages Router applications</li>
+<li>Edge Runtime</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fixed-versions">Fixed Versions<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#fixed-versions" class="hash-link" aria-label="Direct link to Fixed Versions" title="Direct link to Fixed Versions" translate="no">​</a></h2>
+<p>The vulnerability is fully resolved in:</p>
+<ul>
+<li><strong>15.0.5</strong> (for 15.0.x)</li>
+<li><strong>15.1.9</strong> (for 15.1.x)</li>
+<li><strong>15.2.6</strong> (for 15.2.x)</li>
+<li><strong>15.3.6</strong> (for 15.3.x)</li>
+<li><strong>15.4.8</strong> (for 15.4.x)</li>
+<li><strong>15.5.7</strong> (for 15.5.x)</li>
+<li><strong>16.0.7</strong> (for 16.0.x)</li>
+<li><strong>15.6.0-canary.58</strong> (for 15.x canary releases)</li>
+<li><strong>16.1.0-canary.12</strong> (for 16.x canary releases)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="solution-how-to-fix-the-vulnerability">Solution: How to Fix the Vulnerability<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#solution-how-to-fix-the-vulnerability" class="hash-link" aria-label="Direct link to Solution: How to Fix the Vulnerability" title="Direct link to Solution: How to Fix the Vulnerability" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-check-your-current-version">Step 1: Check Your Current Version<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-1-check-your-current-version" class="hash-link" aria-label="Direct link to Step 1: Check Your Current Version" title="Direct link to Step 1: Check Your Current Version" translate="no">​</a></h3>
+<p>First, verify which version of Next.js you're currently using:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm list next</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># or</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">cat package.json | grep next</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-choose-your-upgrade-path">Step 2: Choose Your Upgrade Path<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-2-choose-your-upgrade-path" class="hash-link" aria-label="Direct link to Step 2: Choose Your Upgrade Path" title="Direct link to Step 2: Choose Your Upgrade Path" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="option-a-automated-fix-tool-recommended">Option A: Automated Fix Tool (Recommended)<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#option-a-automated-fix-tool-recommended" class="hash-link" aria-label="Direct link to Option A: Automated Fix Tool (Recommended)" title="Direct link to Option A: Automated Fix Tool (Recommended)" translate="no">​</a></h4>
+<p>The easiest way to fix the vulnerability is using the official automated tool:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npx fix-react2shell-next</span><br></span></code></pre></div></div>
+<p>This interactive tool will:</p>
+<ul>
+<li>Check your current Next.js version</li>
+<li>Determine the correct patched version for your release line</li>
+<li>Automatically update your <code>package.json</code> and <code>package-lock.json</code></li>
+<li>Provide clear instructions for next steps</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="option-b-manual-upgrade">Option B: Manual Upgrade<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#option-b-manual-upgrade" class="hash-link" aria-label="Direct link to Option B: Manual Upgrade" title="Direct link to Option B: Manual Upgrade" translate="no">​</a></h4>
+<p>If you prefer to upgrade manually, install the appropriate patched version based on your current release:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain"># For Next.js 15.0.x</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@15.0.5</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># For Next.js 15.1.x</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@15.1.9</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># For Next.js 15.2.x</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@15.2.6</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># For Next.js 15.3.x</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@15.3.6</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># For Next.js 15.4.x</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@15.4.8</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># For Next.js 15.5.x</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@15.5.7</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># For Next.js 16.0.x</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@16.0.7</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="option-c-upgrade-to-latest-stable-recommended-for-new-projects">Option C: Upgrade to Latest Stable (Recommended for New Projects)<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#option-c-upgrade-to-latest-stable-recommended-for-new-projects" class="hash-link" aria-label="Direct link to Option C: Upgrade to Latest Stable (Recommended for New Projects)" title="Direct link to Option C: Upgrade to Latest Stable (Recommended for New Projects)" translate="no">​</a></h4>
+<p>If you're starting fresh or can upgrade to the latest version:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@latest</span><br></span></code></pre></div></div>
+<p>This will install the latest patched version (16.0.7 or newer).</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-3-handle-canary-releases">Step 3: Handle Canary Releases<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-3-handle-canary-releases" class="hash-link" aria-label="Direct link to Step 3: Handle Canary Releases" title="Direct link to Step 3: Handle Canary Releases" translate="no">​</a></h3>
+<p>If you're using canary releases:</p>
+<ul>
+<li>
+<p><strong>Next.js 14.3.0-canary.77 or later:</strong> Downgrade to stable 14.x</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@14</span><br></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Using canary for PPR (Partial Prerendering):</strong> Update to a patched canary</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@15.6.0-canary.58   # for 15.x canary</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install next@16.1.0-canary.12   # for 16.x canary</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-4-update-dependencies">Step 4: Update Dependencies<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-4-update-dependencies" class="hash-link" aria-label="Direct link to Step 4: Update Dependencies" title="Direct link to Step 4: Update Dependencies" translate="no">​</a></h3>
+<p>After installing the patched version, update your lock file:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># or</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm update</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-5-verify-the-fix">Step 5: Verify the Fix<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-5-verify-the-fix" class="hash-link" aria-label="Direct link to Step 5: Verify the Fix" title="Direct link to Step 5: Verify the Fix" translate="no">​</a></h3>
+<p>Confirm that the patched version is installed:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm list next</span><br></span></code></pre></div></div>
+<p>You should see one of the patched versions listed in the "Fixed Versions" section above.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-6-test-your-application">Step 6: Test Your Application<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-6-test-your-application" class="hash-link" aria-label="Direct link to Step 6: Test Your Application" title="Direct link to Step 6: Test Your Application" translate="no">​</a></h3>
+<p>Before deploying, thoroughly test your application:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm run build</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm run start</span><br></span></code></pre></div></div>
+<p>Test critical functionality, especially:</p>
+<ul>
+<li>Server Components</li>
+<li>API routes</li>
+<li>Server Actions</li>
+<li>Data fetching</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-7-deploy-the-patched-version">Step 7: Deploy the Patched Version<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-7-deploy-the-patched-version" class="hash-link" aria-label="Direct link to Step 7: Deploy the Patched Version" title="Direct link to Step 7: Deploy the Patched Version" translate="no">​</a></h3>
+<p>Deploy your updated application to production immediately:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain"># Example for Vercel</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">vercel --prod</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># Example for other platforms</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">git add package.json package-lock.json</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">git commit -m "security: upgrade Next.js to patch CVE-2025-66478"</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">git push</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-8-rotate-secrets-critical">Step 8: Rotate Secrets (Critical)<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-8-rotate-secrets-critical" class="hash-link" aria-label="Direct link to Step 8: Rotate Secrets (Critical)" title="Direct link to Step 8: Rotate Secrets (Critical)" translate="no">​</a></h3>
+<p><strong>If your application was online and unpatched as of December 4th, 2025 at 1:00 PM PT</strong>, you must rotate all secrets:</p>
+<ol>
+<li>
+<p><strong>Environment Variables:</strong></p>
+<ul>
+<li>Database credentials</li>
+<li>API keys</li>
+<li>OAuth secrets</li>
+<li>JWT secrets</li>
+<li>Encryption keys</li>
+<li>Any other sensitive credentials</li>
+</ul>
+</li>
+<li>
+<p><strong>How to Rotate:</strong></p>
+<ul>
+<li>Update values in your hosting platform (Vercel, AWS, etc.)</li>
+<li>Update <code>.env</code> files (never commit these!)</li>
+<li>Update CI/CD pipeline secrets</li>
+<li>Update third-party service API keys</li>
+</ul>
+</li>
+<li>
+<p><strong>Priority Order:</strong></p>
+<ul>
+<li>Start with most critical secrets (database, payment processors)</li>
+<li>Then rotate API keys and OAuth credentials</li>
+<li>Finally, rotate less critical keys</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-9-monitor-for-issues">Step 9: Monitor for Issues<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#step-9-monitor-for-issues" class="hash-link" aria-label="Direct link to Step 9: Monitor for Issues" title="Direct link to Step 9: Monitor for Issues" translate="no">​</a></h3>
+<p>After deployment:</p>
+<ul>
+<li>Monitor application logs for errors</li>
+<li>Check error tracking (Sentry, etc.)</li>
+<li>Verify all features work correctly</li>
+<li>Monitor for any suspicious activity</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="important-notes">Important Notes<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#important-notes" class="hash-link" aria-label="Direct link to Important Notes" title="Direct link to Important Notes" translate="no">​</a></h3>
+<ul>
+<li><strong>No Workaround Available:</strong> There is no workaround for this vulnerability. Upgrading is the only solution.</li>
+<li><strong>Immediate Action Required:</strong> This is a critical RCE vulnerability. Upgrade as soon as possible.</li>
+<li><strong>Backward Compatibility:</strong> Patched versions maintain backward compatibility with your existing code.</li>
+<li><strong>Breaking Changes:</strong> The security patches do not introduce breaking changes to the Next.js API.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting">Troubleshooting<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h3>
+<p>If you encounter issues during upgrade:</p>
+<ol>
+<li>
+<p><strong>Clear cache:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">rm -rf .next</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">rm -rf node_modules</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm install</span><br></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Check for conflicting dependencies:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm ls react react-dom</span><br></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Review Next.js migration guide:</strong></p>
+<ul>
+<li><a href="https://nextjs.org/docs/app/building-your-application/upgrading/version-15" target="_blank" rel="noopener noreferrer">Next.js 15 Upgrade Guide</a></li>
+<li><a href="https://nextjs.org/docs/app/building-your-application/upgrading/version-16" target="_blank" rel="noopener noreferrer">Next.js 16 Upgrade Guide</a></li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="resources">Resources<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#resources" class="hash-link" aria-label="Direct link to Resources" title="Direct link to Resources" translate="no">​</a></h2>
+<ul>
+<li><a href="https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp" target="_blank" rel="noopener noreferrer">Next.js Security Advisory (CVE-2025-66478)</a></li>
+<li><a href="https://www.cve.org/CVERecord?id=CVE-2025-55182" target="_blank" rel="noopener noreferrer">React Security Advisory (CVE-2025-55182)</a></li>
+<li><a href="https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components" target="_blank" rel="noopener noreferrer">React Blog: Critical Security Vulnerability</a></li>
+<li><a href="https://github.com/vercel-labs/fix-react2shell-next" target="_blank" rel="noopener noreferrer">Fix Tool Repository</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="discovery">Discovery<a href="https://shiguredd.github.io/blog/nextjs-rsc-cve#discovery" class="hash-link" aria-label="Direct link to Discovery" title="Direct link to Discovery" translate="no">​</a></h2>
+<p>Discovered and responsibly disclosed by <a href="https://github.com/lachlan2k" target="_blank" rel="noopener noreferrer">Lachlan Davidson</a>.</p>]]></content:encoded>
+            <category>next.js</category>
+            <category>cve</category>
+            <category>rsc</category>
+        </item>
+        <item>
+            <title><![CDATA[Covid in 2025]]></title>
+            <link>https://ShigureDD.github.io/blog/covid-in-2025</link>
+            <guid>https://ShigureDD.github.io/blog/covid-in-2025</guid>
+            <pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Covid-19 in 2025.]]></description>
+            <content:encoded><![CDATA[<p>I got covid last week and I'm not fine yet. I got same painful symptoms as I got from covid in my first time on 2023.
+Muscle pain, sore throat, fever, chills and can't get out of bed.</p>
+<p>This is my third time getting covid, the symptoms are getting worse than second time, but all the covid support by government have been removed. All the things in last few years like scamming, vaccines and humans isolation.</p>
+<p>Hope world will be better in 2025.</p>]]></content:encoded>
+            <category>covid</category>
+        </item>
         <item>
             <title><![CDATA[How to fix lag on HEVC/H.265 Files with PotPlayer]]></title>
             <link>https://ShigureDD.github.io/blog/potplayer-lag-on-hevc</link>

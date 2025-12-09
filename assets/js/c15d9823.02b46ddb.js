@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[8146],{29328:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/blog","page":1,"postsPerPage":5,"totalPages":2,"totalCount":6,"nextPage":"/blog/page/2","blogDescription":"A blog about software development and technology","blogTitle":"ShigureDD\'s Blog"}}')}}]);
