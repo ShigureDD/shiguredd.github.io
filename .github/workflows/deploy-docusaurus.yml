@@ -56,4 +56,4 @@ jobs:
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-        run: docker run -e ALGOLIA_APP_ID -e ALGOLIA_API_KEY  -e "CONFIG=$(cat .github/scrapeConfig/config.json)" algolia/docsearch-scraper
+        run: docker run -e ALGOLIA_APP_ID -e ALGOLIA_API_KEY -e "CONFIG=$(cat .github/scrapeConfig/config.json| jq -r tostring)" algolia/docsearch-scraper
