@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-cloud/aws/serverless-pdf-qa-architecture" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.1">
+<title data-rh="true">Serverless PDF Q&amp;A System on AWS | ShigureDD&#x27;s Blog</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://ShigureDD.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://ShigureDD.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://ShigureDD.github.io/docs/cloud/aws/serverless-pdf-qa-architecture"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Serverless PDF Q&amp;A System on AWS | ShigureDD&#x27;s Blog"><meta data-rh="true" name="description" content="High-Level Architecture"><meta data-rh="true" property="og:description" content="High-Level Architecture"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://ShigureDD.github.io/docs/cloud/aws/serverless-pdf-qa-architecture"><link data-rh="true" rel="alternate" href="https://ShigureDD.github.io/docs/cloud/aws/serverless-pdf-qa-architecture" hreflang="en"><link data-rh="true" rel="alternate" href="https://ShigureDD.github.io/docs/cloud/aws/serverless-pdf-qa-architecture" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://WO5FWRCA21-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cloud","item":"https://ShigureDD.github.io/docs/category/cloud"},{"@type":"ListItem","position":2,"name":"aws","item":"https://ShigureDD.github.io/docs/category/aws"},{"@type":"ListItem","position":3,"name":"Serverless PDF Q&A System on AWS","item":"https://ShigureDD.github.io/docs/cloud/aws/serverless-pdf-qa-architecture"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="ShigureDD&#39;s Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="ShigureDD&#39;s Blog Atom Feed">
+
+
+
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="ShigureDD&#39;s Blog" href="/opensearch.xml">
+
+
+
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JE0YTYV6Y9"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JE0YTYV6Y9",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.02dbaa67.css">
+<script src="/assets/js/runtime~main.c0f0a14e.js" defer="defer"></script>
+<script src="/assets/js/main.323e532b.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"dark"),document.documentElement.setAttribute("data-theme-choice",t||"dark")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="ShigureDD Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="ShigureDD Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">ShigureDD</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" id="docs" href="/docs/intro">Learn</a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/about">About</a><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">Redoc</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/api/using-single-yaml/">Using Single YAML</a></li><li><a class="dropdown__link" href="/api/from-remote-file/">Using Remote URL</a></li></ul></div></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/ShigureDD" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/artificial-intelligence"><span title="Artificial Intelligence" class="categoryLinkLabel_W154">Artificial Intelligence</span></a><button aria-label="Expand sidebar category &#x27;Artificial Intelligence&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/programming-langauge"><span title="Programming Langauge" class="categoryLinkLabel_W154">Programming Langauge</span></a><button aria-label="Expand sidebar category &#x27;Programming Langauge&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/docs/category/cloud"><span title="Cloud" class="categoryLinkLabel_W154">Cloud</span></a><button aria-label="Collapse sidebar category &#x27;Cloud&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/category/azure"><span title="Azure" class="categoryLinkLabel_W154">Azure</span></a><button aria-label="Expand sidebar category &#x27;Azure&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/category/aws"><span title="aws" class="categoryLinkLabel_W154">aws</span></a><button aria-label="Collapse sidebar category &#x27;aws&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/cloud/aws/serverless-pdf-qa-architecture"><span title="Serverless PDF Q&amp;A System on AWS" class="linkLabel_WmDU">Serverless PDF Q&amp;A System on AWS</span></a></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/react"><span title="React" class="categoryLinkLabel_W154">React</span></a><button aria-label="Expand sidebar category &#x27;React&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/net"><span title=".NET" class="categoryLinkLabel_W154">.NET</span></a><button aria-label="Expand sidebar category &#x27;.NET&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/finance"><span title="Finance" class="categoryLinkLabel_W154">Finance</span></a><button aria-label="Expand sidebar category &#x27;Finance&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/cloud"><span>Cloud</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/aws"><span>aws</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Serverless PDF Q&amp;A System on AWS</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Serverless PDF Q&amp;A System on AWS</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="hash-link" aria-label="Direct link to High-Level Architecture" title="Direct link to High-Level Architecture" translate="no">​</a></h2>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="architecture-components">Architecture Components<a href="#architecture-components" class="hash-link" aria-label="Direct link to Architecture Components" title="Direct link to Architecture Components" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-upload-layer">1. <strong>Upload Layer</strong><a href="#1-upload-layer" class="hash-link" aria-label="Direct link to 1-upload-layer" title="Direct link to 1-upload-layer" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-s3---pdf-storage">Amazon S3 - PDF Storage<a href="#amazon-s3---pdf-storage" class="hash-link" aria-label="Direct link to Amazon S3 - PDF Storage" title="Direct link to Amazon S3 - PDF Storage" translate="no">​</a></h4>
+<ul>
+<li><strong>Bucket 1</strong>: <code>pdf-uploads</code> (Standard storage)<!-- -->
+<ul>
+<li>Upload via presigned URLs or direct POST</li>
+<li>Server-side encryption (SSE-S3 or SSE-KMS)</li>
+<li>Lifecycle policy: Move to IA after 30 days, Glacier after 90 days</li>
+<li>Event notifications to SQS on upload</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="api-gateway--lambda-upload-handler">API Gateway + Lambda (Upload Handler)<a href="#api-gateway--lambda-upload-handler" class="hash-link" aria-label="Direct link to API Gateway + Lambda (Upload Handler)" title="Direct link to API Gateway + Lambda (Upload Handler)" translate="no">​</a></h4>
+<ul>
+<li>Validates file type (PDF only)</li>
+<li>Checks file size limits (e.g., 50MB max)</li>
+<li>Generates presigned URLs for direct S3 upload (reduces Lambda time)</li>
+<li>Creates metadata entry in DynamoDB</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-processing-pipeline">2. <strong>Processing Pipeline</strong><a href="#2-processing-pipeline" class="hash-link" aria-label="Direct link to 2-processing-pipeline" title="Direct link to 2-processing-pipeline" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-step-functions-state-machine">Amazon Step Functions (State Machine)<a href="#amazon-step-functions-state-machine" class="hash-link" aria-label="Direct link to Amazon Step Functions (State Machine)" title="Direct link to Amazon Step Functions (State Machine)" translate="no">​</a></h4>
+<p>Orchestrates the entire processing workflow:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">&quot;Comment&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;PDF Processing Pipeline&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">&quot;StartAt&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;ExtractText&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">&quot;States&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token property">&quot;ExtractText&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Type&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;Task&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Resource&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;arn:aws:lambda:...:function:ExtractText&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Next&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;GenerateSummary&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Retry&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">          </span><span class="token property">&quot;ErrorEquals&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token string" style="color:rgb(255, 121, 198)">&quot;States.TaskFailed&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">          </span><span class="token property">&quot;IntervalSeconds&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token number">2</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">          </span><span class="token property">&quot;MaxAttempts&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token number">3</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">          </span><span class="token property">&quot;BackoffRate&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token number">2.0</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Catch&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">          </span><span class="token property">&quot;ErrorEquals&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token string" style="color:rgb(255, 121, 198)">&quot;States.ALL&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">          </span><span class="token property">&quot;Next&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;NotifyFailure&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">          </span><span class="token property">&quot;ResultPath&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;$.error&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token property">&quot;GenerateSummary&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Type&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;Task&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Resource&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;arn:aws:lambda:...:function:GenerateSummary&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Next&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;GenerateEmbeddings&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token property">&quot;GenerateEmbeddings&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Type&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;Task&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Resource&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;arn:aws:lambda:...:function:GenerateEmbeddings&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Next&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;StoreResults&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token property">&quot;StoreResults&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Type&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;Task&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;Resource&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;arn:aws:lambda:...:function:StoreResults&quot;</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">&quot;End&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token boolean">true</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-textract">Amazon Textract<a href="#amazon-textract" class="hash-link" aria-label="Direct link to Amazon Textract" title="Direct link to Amazon Textract" translate="no">​</a></h4>
+<ul>
+<li>Async document analysis API</li>
+<li>Handles multi-page PDFs</li>
+<li>Extracts text with layout preservation</li>
+<li>Cost: ~$1.50 per 1000 pages</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-ai-processing-layer">3. <strong>AI Processing Layer</strong><a href="#3-ai-processing-layer" class="hash-link" aria-label="Direct link to 3-ai-processing-layer" title="Direct link to 3-ai-processing-layer" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-bedrock---claude-35-sonnet">Amazon Bedrock - Claude 3.5 Sonnet<a href="#amazon-bedrock---claude-35-sonnet" class="hash-link" aria-label="Direct link to Amazon Bedrock - Claude 3.5 Sonnet" title="Direct link to Amazon Bedrock - Claude 3.5 Sonnet" translate="no">​</a></h4>
+<ul>
+<li>
+<p><strong>Summarization</strong>: Use <code>anthropic.claude-3-5-sonnet-20241022-v2:0</code></p>
+<ul>
+<li>Prompt engineering for structured summaries</li>
+<li>Token limits: Input up to 200K tokens, output 8K tokens</li>
+<li>Cost: ~$3/million input tokens, ~$15/million output tokens</li>
+</ul>
+</li>
+<li>
+<p><strong>Q&amp;A with RAG</strong>:</p>
+<ul>
+<li>Retrieve relevant chunks via vector search</li>
+<li>Provide context to Claude for answer generation</li>
+<li>Streaming responses for better UX</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedding-generation">Embedding Generation<a href="#embedding-generation" class="hash-link" aria-label="Direct link to Embedding Generation" title="Direct link to Embedding Generation" translate="no">​</a></h4>
+<ul>
+<li><strong>Option 1</strong>: Amazon Titan Embeddings (<code>amazon.titan-embed-text-v2</code>)<!-- -->
+<ul>
+<li>Cost-effective, managed service</li>
+<li>1024-dimension vectors</li>
+</ul>
+</li>
+<li><strong>Option 2</strong>: Cohere Embed (<code>cohere.embed-english-v3</code>)<!-- -->
+<ul>
+<li>Higher quality, better semantic understanding</li>
+<li>1024-dimension vectors</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-storage-layer">4. <strong>Storage Layer</strong><a href="#4-storage-layer" class="hash-link" aria-label="Direct link to 4-storage-layer" title="Direct link to 4-storage-layer" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="dynamodb---document-metadata">DynamoDB - Document Metadata<a href="#dynamodb---document-metadata" class="hash-link" aria-label="Direct link to DynamoDB - Document Metadata" title="Direct link to DynamoDB - Document Metadata" translate="no">​</a></h4>
+<p><strong>Table Structure:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Partition Key: document_id (UUID)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Sort Key: None</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Attributes:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - user_id (GSI partition key)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - uploaded_at (GSI sort key)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - file_name</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - file_size</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - summary</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - status (processing, completed, failed)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - s3_key</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - processing_metadata (JSON)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  - ttl (auto-delete old records)</span><br></span></code></pre></div></div>
+<p><strong>GSIs:</strong></p>
+<ul>
+<li><code>user-id-index</code>: Query documents by user</li>
+<li><code>status-index</code>: Monitor processing status</li>
+</ul>
+<p><strong>Cost Optimization:</strong></p>
+<ul>
+<li>On-demand pricing for variable workloads</li>
+<li>TTL for automatic cleanup</li>
+<li>Efficient indexing strategy</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-opensearch-serverless---vector-store">Amazon OpenSearch Serverless - Vector Store<a href="#amazon-opensearch-serverless---vector-store" class="hash-link" aria-label="Direct link to Amazon OpenSearch Serverless - Vector Store" title="Direct link to Amazon OpenSearch Serverless - Vector Store" translate="no">​</a></h4>
+<ul>
+<li>Vector similarity search using <code>k-NN</code> plugin</li>
+<li>Index structure:<!-- -->
+<ul>
+<li>Document chunks (with metadata)</li>
+<li>Vector embeddings (1024 dimensions)</li>
+<li>Metadata filters (user_id, document_id, date_range)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Cost Optimization:</strong></p>
+<ul>
+<li>Serverless OpenSearch (pay per query)</li>
+<li>Implement caching for frequent queries</li>
+<li>Use filtering to reduce search space</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="s3---processed-documents">S3 - Processed Documents<a href="#s3---processed-documents" class="hash-link" aria-label="Direct link to S3 - Processed Documents" title="Direct link to S3 - Processed Documents" translate="no">​</a></h4>
+<ul>
+<li>Store extracted text and summaries</li>
+<li>Lifecycle policies for cost optimization:<!-- -->
+<ul>
+<li>Standard → IA (after 30 days)</li>
+<li>IA → Glacier (after 90 days)</li>
+<li>Glacier → Delete (after 1 year)</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-qa-layer">5. <strong>Q&amp;A Layer</strong><a href="#5-qa-layer" class="hash-link" aria-label="Direct link to 5-qa-layer" title="Direct link to 5-qa-layer" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rag-retrieval-augmented-generation-flow">RAG (Retrieval-Augmented Generation) Flow:<a href="#rag-retrieval-augmented-generation-flow" class="hash-link" aria-label="Direct link to RAG (Retrieval-Augmented Generation) Flow:" title="Direct link to RAG (Retrieval-Augmented Generation) Flow:" translate="no">​</a></h4>
+<ol>
+<li>User submits question via API Gateway</li>
+<li>Lambda generates embedding for the question</li>
+<li>Vector similarity search in OpenSearch (top-k: 5-10 chunks)</li>
+<li>Retrieve relevant document chunks</li>
+<li>Construct prompt with context + question</li>
+<li>Invoke Bedrock Claude 3.5 for answer generation</li>
+<li>Return answer with source citations</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cost-optimization-strategies">Cost Optimization Strategies<a href="#cost-optimization-strategies" class="hash-link" aria-label="Direct link to Cost Optimization Strategies" title="Direct link to Cost Optimization Strategies" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-lambda-optimizations">1. <strong>Lambda Optimizations</strong><a href="#1-lambda-optimizations" class="hash-link" aria-label="Direct link to 1-lambda-optimizations" title="Direct link to 1-lambda-optimizations" translate="no">​</a></h3>
+<ul>
+<li><strong>Reserved Concurrency</strong>: Set limits per function to prevent cost spikes</li>
+<li><strong>Memory Allocation</strong>: Right-size based on actual usage (start with 256MB, optimize)</li>
+<li><strong>Provisioned Concurrency</strong>: Only for critical, low-latency paths (Q&amp;A endpoint)</li>
+<li><strong>Timeouts</strong>: Set aggressive timeouts (30-60s) to prevent runaway costs</li>
+<li><strong>Dead Letter Queues</strong>: Monitor failures without retry costs</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-bedrock-cost-control">2. <strong>Bedrock Cost Control</strong><a href="#2-bedrock-cost-control" class="hash-link" aria-label="Direct link to 2-bedrock-cost-control" title="Direct link to 2-bedrock-cost-control" translate="no">​</a></h3>
+<ul>
+<li><strong>Request Throttling</strong>: Implement rate limiting per user/tenant</li>
+<li><strong>Token Budgets</strong>: Set daily/monthly token limits per user</li>
+<li><strong>Caching</strong>: Cache summaries and embeddings for identical documents</li>
+<li><strong>Streaming</strong>: Use streaming for Q&amp;A to show partial results (better UX)</li>
+<li><strong>Model Selection</strong>: Use Claude 3 Haiku for simple tasks, Sonnet for complex</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-s3-cost-optimization">3. <strong>S3 Cost Optimization</strong><a href="#3-s3-cost-optimization" class="hash-link" aria-label="Direct link to 3-s3-cost-optimization" title="Direct link to 3-s3-cost-optimization" translate="no">​</a></h3>
+<ul>
+<li><strong>Lifecycle Policies</strong>: Automatic tier transitions</li>
+<li><strong>S3 Intelligent-Tiering</strong>: For unpredictable access patterns</li>
+<li><strong>Compression</strong>: Compress stored text (gzip) before storing</li>
+<li><strong>Presigned URLs</strong>: Direct upload to reduce Lambda processing time</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-opensearch-cost-control">4. <strong>OpenSearch Cost Control</strong><a href="#4-opensearch-cost-control" class="hash-link" aria-label="Direct link to 4-opensearch-cost-control" title="Direct link to 4-opensearch-cost-control" translate="no">​</a></h3>
+<ul>
+<li><strong>Serverless Mode</strong>: Pay only for what you use</li>
+<li><strong>Query Caching</strong>: Cache frequent queries (e.g., common questions)</li>
+<li><strong>Batch Operations</strong>: Batch embedding storage operations</li>
+<li><strong>Index Lifecycle</strong>: Delete old vectors automatically</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-dynamodb-optimization">5. <strong>DynamoDB Optimization</strong><a href="#5-dynamodb-optimization" class="hash-link" aria-label="Direct link to 5-dynamodb-optimization" title="Direct link to 5-dynamodb-optimization" translate="no">​</a></h3>
+<ul>
+<li><strong>On-Demand</strong>: For variable workloads (no capacity planning)</li>
+<li><strong>TTL</strong>: Auto-delete old records</li>
+<li><strong>Efficient GSIs</strong>: Only create necessary indexes</li>
+<li><strong>Batch Operations</strong>: Batch write/read operations</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="6-monitoring--alerts">6. <strong>Monitoring &amp; Alerts</strong><a href="#6-monitoring--alerts" class="hash-link" aria-label="Direct link to 6-monitoring--alerts" title="Direct link to 6-monitoring--alerts" translate="no">​</a></h3>
+<ul>
+<li><strong>CloudWatch Billing Alarms</strong>: Alert on cost thresholds</li>
+<li><strong>Cost Anomaly Detection</strong>: Detect unusual spending patterns</li>
+<li><strong>Service-Level Metrics</strong>: Track per-service costs</li>
+<li><strong>Usage Dashboards</strong>: Real-time cost visibility</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="scalability-considerations">Scalability Considerations<a href="#scalability-considerations" class="hash-link" aria-label="Direct link to Scalability Considerations" title="Direct link to Scalability Considerations" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-horizontal-scaling">1. <strong>Horizontal Scaling</strong><a href="#1-horizontal-scaling" class="hash-link" aria-label="Direct link to 1-horizontal-scaling" title="Direct link to 1-horizontal-scaling" translate="no">​</a></h3>
+<ul>
+<li>All components are serverless and auto-scale</li>
+<li>No manual capacity planning required</li>
+<li>Handles sudden traffic spikes automatically</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-async-processing">2. <strong>Async Processing</strong><a href="#2-async-processing" class="hash-link" aria-label="Direct link to 2-async-processing" title="Direct link to 2-async-processing" translate="no">​</a></h3>
+<ul>
+<li>Uploads trigger async processing pipeline</li>
+<li>Users get immediate acknowledgment</li>
+<li>Processing status tracked in DynamoDB</li>
+<li>WebSocket/SSE for real-time status updates (optional)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-rate-limiting">3. <strong>Rate Limiting</strong><a href="#3-rate-limiting" class="hash-link" aria-label="Direct link to 3-rate-limiting" title="Direct link to 3-rate-limiting" translate="no">​</a></h3>
+<ul>
+<li>API Gateway throttling (requests per second per API key)</li>
+<li>Per-user limits via Cognito groups</li>
+<li>SQS message throttling for processing queue</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-caching-strategy">4. <strong>Caching Strategy</strong><a href="#4-caching-strategy" class="hash-link" aria-label="Direct link to 4-caching-strategy" title="Direct link to 4-caching-strategy" translate="no">​</a></h3>
+<ul>
+<li><strong>API Gateway Caching</strong>: Cache Q&amp;A responses (short TTL: 5-10 min)</li>
+<li><strong>Lambda Layer Caching</strong>: Cache embeddings for common documents</li>
+<li><strong>CloudFront</strong>: CDN for static assets (if web UI is static)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-multi-tenancy">5. <strong>Multi-Tenancy</strong><a href="#5-multi-tenancy" class="hash-link" aria-label="Direct link to 5-multi-tenancy" title="Direct link to 5-multi-tenancy" translate="no">​</a></h3>
+<ul>
+<li>Cognito User Pools for isolation</li>
+<li>DynamoDB partition key includes tenant/user_id</li>
+<li>OpenSearch index per tenant (or metadata filtering)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="6-error-handling--resilience">6. <strong>Error Handling &amp; Resilience</strong><a href="#6-error-handling--resilience" class="hash-link" aria-label="Direct link to 6-error-handling--resilience" title="Direct link to 6-error-handling--resilience" translate="no">​</a></h3>
+<ul>
+<li>Step Functions retry logic with exponential backoff</li>
+<li>Dead Letter Queues for failed messages</li>
+<li>Circuit breakers for external service calls</li>
+<li>Graceful degradation (fallback to cached responses)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="estimated-costs-example-1000-documentsmonth-500-qa-queriesday">Estimated Costs (Example: 1000 documents/month, 500 Q&amp;A queries/day)<a href="#estimated-costs-example-1000-documentsmonth-500-qa-queriesday" class="hash-link" aria-label="Direct link to Estimated Costs (Example: 1000 documents/month, 500 Q&amp;A queries/day)" title="Direct link to Estimated Costs (Example: 1000 documents/month, 500 Q&amp;A queries/day)" translate="no">​</a></h2>
+<table><thead><tr><th>Service</th><th>Usage</th><th>Monthly Cost (USD)</th></tr></thead><tbody><tr><td>S3 Storage (100GB)</td><td>100GB Standard</td><td>~$2.30</td></tr><tr><td>S3 Requests</td><td>10K PUT, 50K GET</td><td>~$0.50</td></tr><tr><td>Lambda</td><td>10M invocations, 50GB-sec</td><td>~$20</td></tr><tr><td>Textract</td><td>5K pages</td><td>~$7.50</td></tr><tr><td>Bedrock Claude 3.5</td><td>100M input tokens, 5M output tokens</td><td>~$375</td></tr><tr><td>Bedrock Embeddings</td><td>100K embeddings</td><td>~$1</td></tr><tr><td>DynamoDB</td><td>1M read, 500K write</td><td>~$0.25</td></tr><tr><td>OpenSearch Serverless</td><td>100K queries</td><td>~$50</td></tr><tr><td>API Gateway</td><td>15K requests</td><td>~$1</td></tr><tr><td>Step Functions</td><td>1K executions</td><td>~$0.50</td></tr><tr><td><strong>Total</strong></td><td></td><td><strong>~$458/month</strong></td></tr></tbody></table>
+<p><strong>Cost Reduction Tips:</strong></p>
+<ul>
+<li>Use Claude 3 Haiku for simple Q&amp;A: -60% cost</li>
+<li>Implement aggressive caching: -40% Bedrock costs</li>
+<li>Optimize S3 lifecycle: -50% storage costs</li>
+<li>Batch processing: -30% Lambda costs</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="security-considerations">Security Considerations<a href="#security-considerations" class="hash-link" aria-label="Direct link to Security Considerations" title="Direct link to Security Considerations" translate="no">​</a></h2>
+<ol>
+<li><strong>Authentication</strong>: Cognito User Pools with MFA</li>
+<li><strong>Authorization</strong>: IAM roles with least privilege</li>
+<li><strong>Encryption</strong>:<!-- -->
+<ul>
+<li>S3: SSE-S3 or SSE-KMS</li>
+<li>DynamoDB: Encryption at rest</li>
+<li>API Gateway: TLS 1.2+</li>
+</ul>
+</li>
+<li><strong>Data Isolation</strong>: Tenant-based data separation</li>
+<li><strong>Audit Logging</strong>: CloudTrail for all API calls</li>
+<li><strong>VPC</strong>: Optional VPC for Lambda (if needed for compliance)</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="deployment-recommendations">Deployment Recommendations<a href="#deployment-recommendations" class="hash-link" aria-label="Direct link to Deployment Recommendations" title="Direct link to Deployment Recommendations" translate="no">​</a></h2>
+<ol>
+<li><strong>Infrastructure as Code</strong>: AWS CDK or Terraform</li>
+<li><strong>CI/CD</strong>: GitHub Actions or AWS CodePipeline</li>
+<li><strong>Monitoring</strong>: CloudWatch Dashboards + X-Ray for tracing</li>
+<li><strong>Testing</strong>:<!-- -->
+<ul>
+<li>Unit tests for Lambda functions</li>
+<li>Integration tests for Step Functions</li>
+<li>Load testing for cost validation</li>
+</ul>
+</li>
+<li><strong>Multi-Region</strong>: Deploy in multiple regions for DR (optional)</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="implementation-phases">Implementation Phases<a href="#implementation-phases" class="hash-link" aria-label="Direct link to Implementation Phases" title="Direct link to Implementation Phases" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="phase-1-mvp-minimum-viable-product">Phase 1: MVP (Minimum Viable Product)<a href="#phase-1-mvp-minimum-viable-product" class="hash-link" aria-label="Direct link to Phase 1: MVP (Minimum Viable Product)" title="Direct link to Phase 1: MVP (Minimum Viable Product)" translate="no">​</a></h3>
+<ul>
+<li>S3 upload → Textract → Bedrock summary → DynamoDB</li>
+<li>Basic Q&amp;A with simple keyword search</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="phase-2-vector-search">Phase 2: Vector Search<a href="#phase-2-vector-search" class="hash-link" aria-label="Direct link to Phase 2: Vector Search" title="Direct link to Phase 2: Vector Search" translate="no">​</a></h3>
+<ul>
+<li>Implement embeddings and OpenSearch</li>
+<li>RAG-based Q&amp;A</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="phase-3-optimization">Phase 3: Optimization<a href="#phase-3-optimization" class="hash-link" aria-label="Direct link to Phase 3: Optimization" title="Direct link to Phase 3: Optimization" translate="no">​</a></h3>
+<ul>
+<li>Cost optimization</li>
+<li>Caching layer</li>
+<li>Advanced monitoring</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="phase-4-enterprise-features">Phase 4: Enterprise Features<a href="#phase-4-enterprise-features" class="hash-link" aria-label="Direct link to Phase 4: Enterprise Features" title="Direct link to Phase 4: Enterprise Features" translate="no">​</a></h3>
+<ul>
+<li>Multi-tenancy</li>
+<li>Advanced analytics</li>
+<li>Fine-tuning capabilities</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="alternative-architectures">Alternative Architectures<a href="#alternative-architectures" class="hash-link" aria-label="Direct link to Alternative Architectures" title="Direct link to Alternative Architectures" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="option-1-use-amazon-kendra-instead-of-opensearch">Option 1: Use Amazon Kendra Instead of OpenSearch<a href="#option-1-use-amazon-kendra-instead-of-opensearch" class="hash-link" aria-label="Direct link to Option 1: Use Amazon Kendra Instead of OpenSearch" title="Direct link to Option 1: Use Amazon Kendra Instead of OpenSearch" translate="no">​</a></h3>
+<ul>
+<li><strong>Pros</strong>: Fully managed, better semantic search, no infrastructure management</li>
+<li><strong>Cons</strong>: Higher cost, less customization</li>
+<li><strong>Use Case</strong>: Enterprise customers with budget</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="option-2-use-amazon-comprehend-for-summarization">Option 2: Use Amazon Comprehend for Summarization<a href="#option-2-use-amazon-comprehend-for-summarization" class="hash-link" aria-label="Direct link to Option 2: Use Amazon Comprehend for Summarization" title="Direct link to Option 2: Use Amazon Comprehend for Summarization" translate="no">​</a></h3>
+<ul>
+<li><strong>Pros</strong>: Lower cost for simple summaries</li>
+<li><strong>Cons</strong>: Less flexible, lower quality than Claude</li>
+<li><strong>Use Case</strong>: Cost-sensitive scenarios with simple documents</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="option-3-hybrid-approach">Option 3: Hybrid Approach<a href="#option-3-hybrid-approach" class="hash-link" aria-label="Direct link to Option 3: Hybrid Approach" title="Direct link to Option 3: Hybrid Approach" translate="no">​</a></h3>
+<ul>
+<li>Use Bedrock for complex documents</li>
+<li>Use Comprehend for simple documents</li>
+<li>Route based on document complexity</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="next-steps">Next Steps<a href="#next-steps" class="hash-link" aria-label="Direct link to Next Steps" title="Direct link to Next Steps" translate="no">​</a></h2>
+<ol>
+<li>Set up AWS account with appropriate service quotas</li>
+<li>Create proof-of-concept with one document</li>
+<li>Measure actual costs and optimize</li>
+<li>Scale incrementally based on usage patterns</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-01-31T07:09:12.000Z" itemprop="dateModified">Jan 31, 2026</time></b> by <b>Shigure</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/category/aws"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">aws</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/category/react"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">React</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#high-level-architecture" class="table-of-contents__link toc-highlight">High-Level Architecture</a></li><li><a href="#architecture-components" class="table-of-contents__link toc-highlight">Architecture Components</a><ul><li><a href="#1-upload-layer" class="table-of-contents__link toc-highlight">1. <strong>Upload Layer</strong></a></li><li><a href="#2-processing-pipeline" class="table-of-contents__link toc-highlight">2. <strong>Processing Pipeline</strong></a></li><li><a href="#3-ai-processing-layer" class="table-of-contents__link toc-highlight">3. <strong>AI Processing Layer</strong></a></li><li><a href="#4-storage-layer" class="table-of-contents__link toc-highlight">4. <strong>Storage Layer</strong></a></li><li><a href="#5-qa-layer" class="table-of-contents__link toc-highlight">5. <strong>Q&amp;A Layer</strong></a></li></ul></li><li><a href="#cost-optimization-strategies" class="table-of-contents__link toc-highlight">Cost Optimization Strategies</a><ul><li><a href="#1-lambda-optimizations" class="table-of-contents__link toc-highlight">1. <strong>Lambda Optimizations</strong></a></li><li><a href="#2-bedrock-cost-control" class="table-of-contents__link toc-highlight">2. <strong>Bedrock Cost Control</strong></a></li><li><a href="#3-s3-cost-optimization" class="table-of-contents__link toc-highlight">3. <strong>S3 Cost Optimization</strong></a></li><li><a href="#4-opensearch-cost-control" class="table-of-contents__link toc-highlight">4. <strong>OpenSearch Cost Control</strong></a></li><li><a href="#5-dynamodb-optimization" class="table-of-contents__link toc-highlight">5. <strong>DynamoDB Optimization</strong></a></li><li><a href="#6-monitoring--alerts" class="table-of-contents__link toc-highlight">6. <strong>Monitoring &amp; Alerts</strong></a></li></ul></li><li><a href="#scalability-considerations" class="table-of-contents__link toc-highlight">Scalability Considerations</a><ul><li><a href="#1-horizontal-scaling" class="table-of-contents__link toc-highlight">1. <strong>Horizontal Scaling</strong></a></li><li><a href="#2-async-processing" class="table-of-contents__link toc-highlight">2. <strong>Async Processing</strong></a></li><li><a href="#3-rate-limiting" class="table-of-contents__link toc-highlight">3. <strong>Rate Limiting</strong></a></li><li><a href="#4-caching-strategy" class="table-of-contents__link toc-highlight">4. <strong>Caching Strategy</strong></a></li><li><a href="#5-multi-tenancy" class="table-of-contents__link toc-highlight">5. <strong>Multi-Tenancy</strong></a></li><li><a href="#6-error-handling--resilience" class="table-of-contents__link toc-highlight">6. <strong>Error Handling &amp; Resilience</strong></a></li></ul></li><li><a href="#estimated-costs-example-1000-documentsmonth-500-qa-queriesday" class="table-of-contents__link toc-highlight">Estimated Costs (Example: 1000 documents/month, 500 Q&amp;A queries/day)</a></li><li><a href="#security-considerations" class="table-of-contents__link toc-highlight">Security Considerations</a></li><li><a href="#deployment-recommendations" class="table-of-contents__link toc-highlight">Deployment Recommendations</a></li><li><a href="#implementation-phases" class="table-of-contents__link toc-highlight">Implementation Phases</a><ul><li><a href="#phase-1-mvp-minimum-viable-product" class="table-of-contents__link toc-highlight">Phase 1: MVP (Minimum Viable Product)</a></li><li><a href="#phase-2-vector-search" class="table-of-contents__link toc-highlight">Phase 2: Vector Search</a></li><li><a href="#phase-3-optimization" class="table-of-contents__link toc-highlight">Phase 3: Optimization</a></li><li><a href="#phase-4-enterprise-features" class="table-of-contents__link toc-highlight">Phase 4: Enterprise Features</a></li></ul></li><li><a href="#alternative-architectures" class="table-of-contents__link toc-highlight">Alternative Architectures</a><ul><li><a href="#option-1-use-amazon-kendra-instead-of-opensearch" class="table-of-contents__link toc-highlight">Option 1: Use Amazon Kendra Instead of OpenSearch</a></li><li><a href="#option-2-use-amazon-comprehend-for-summarization" class="table-of-contents__link toc-highlight">Option 2: Use Amazon Comprehend for Summarization</a></li><li><a href="#option-3-hybrid-approach" class="table-of-contents__link toc-highlight">Option 3: Hybrid Approach</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><div class="mt-4"><footer class="text-[var(--ifm-footer-color)]"><div class="container container-fluid"><div class="row flex justify-center items-center"><div class="col text-center"><div class="flex justify-center space-x-4"><a href="https://linkedin.com/in/tom-l-8a8b641a5" target="_blank" rel="noreferrer" class="text-black dark:text-white hover:text-ds-blue-primary dark:hover:text-ds-blue-accent"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="LinkedIn"><title>LinkedIn</title><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a><a href="https://github.com/ShigureDD" target="_blank" rel="noreferrer" class="text-[#333] dark:text-[#f5f5f5] hover:text-ds-blue-primary dark:hover:text-ds-blue-accent"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="GitHub"><title>GitHub</title><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div></div></div><div class="col text-center mt-4"><p class="text-sm">© <!-- -->2026<!-- --> ShigureDD. Built with Docusaurus.</p></div></div></footer></div></div>
+</body>
+</html>
