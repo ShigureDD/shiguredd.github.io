@@ -1,5 +1,5 @@
 name: Algolia Indexing
-run-name: Algolia Indexing quad-weekly
+run-name: Algolia Indexing bi-weekly
 on:
   schedule:
     # At 04:00 on Monday
@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 env:
   # The date of the first run of the action. It has to be set to a date that is on the same weekday as the cron.
-  # 12/11 is Monday, so the cron is set to run on Monday.
-  # Every second week of the bi-weekly cycle, the action is going to be skipped.
+  # 12/08/2025 is Monday, so the cron is set to run on Monday.
+  # Every other week, the action is skipped.
   # The cron time can be set to any time of the day.
   FIRST_RUN_DATE: 2025-12-08
 jobs:
@@ -24,7 +24,7 @@ jobs:
           start=$(date -d ${{ env.FIRST_RUN_DATE }} +%s)
           end=$(date -d $current_date +%s)
           weekdiff=$(((end-start) / 60 / 60 / 24 / 7))
-          weekindex=$((weekdiff % 4))
+          weekindex=$((weekdiff % 2))
           echo "weekindex=$weekindex" >> "$GITHUB_OUTPUT"
           echo "FIRST_RUN_DATE: ${{ env.FIRST_RUN_DATE }}" >> $GITHUB_STEP_SUMMARY
           echo "current_date: $current_date" >> $GITHUB_STEP_SUMMARY
