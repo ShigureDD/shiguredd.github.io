@@ -2616,7 +2616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-sitemap@npm:3.10.1, @docusaurus/plugin-sitemap@npm:^3.10.1":
+"@docusaurus/plugin-sitemap@npm:3.10.1":
   version: 3.10.1
   resolution: "@docusaurus/plugin-sitemap@npm:3.10.1"
   dependencies:
@@ -11051,7 +11051,6 @@ __metadata:
     "@docusaurus/core": "npm:^3.10.1"
     "@docusaurus/module-type-aliases": "npm:^3.10.1"
     "@docusaurus/plugin-google-gtag": "npm:^3.10.1"
-    "@docusaurus/plugin-sitemap": "npm:^3.10.1"
     "@docusaurus/preset-classic": "npm:^3.10.1"
     "@docusaurus/theme-live-codeblock": "npm:^3.10.1"
     "@docusaurus/theme-mermaid": "npm:^3.10.1"
