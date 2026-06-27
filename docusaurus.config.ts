@@ -6,6 +6,17 @@ import 'dotenv/config';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const algoliaApiKey = process.env.ALGOLIA_API_KEY ?? '';
+const algoliaAppId = process.env.ALGOLIA_APP_ID ?? '';
+const algoliaConfig = algoliaApiKey && algoliaAppId
+  ? {
+      apiKey: algoliaApiKey,
+      indexName: 'docusaurus-github-io',
+      appId: algoliaAppId,
+      contextualSearch: true,
+    }
+  : undefined;
+
 const config: Config = {
   title: 'ShigureDD\'s Blog',
   tagline: 'Sharing knowledge and experiences in software development',
@@ -241,13 +252,7 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
-    algolia: {
-      apiKey: process.env.API_KEY,
-      indexName: "docusaurus-github-io",
-      appId: process.env.APPLICATION_ID,
-      contextualSearch: true,
-    }
-    
+    ...(algoliaConfig ? {algolia: algoliaConfig} : {}),
   } satisfies Preset.ThemeConfig,
   markdown: {
     mermaid: true,
