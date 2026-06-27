@@ -25,7 +25,7 @@ jobs:
           cache: yarn
 
       - name: Prepare Yarn 4
-        run: corepack prepare yarn@4.10.3 --activate
+        run: corepack prepare yarn@4.17.0 --activate
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile

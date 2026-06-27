@@ -17,7 +17,7 @@ const config: Config = {
       removeLegacyPostBuildHeadAttribute: false,
       useCssCascadeLayers: false,
     },
-    experimental_faster: {
+    faster: {
       rspackBundler: false,
       rspackPersistentCache: false,
     },
