@@ -24,7 +24,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default function CustomFooter( Props: React.HTMLAttributes<HTMLElement> ) {
-  console.log(Props);
+
   const location = useLocation();
   const pagesToHideTapes = ['/docs', '/blog', 'about'];
 
