@@ -1,5 +1,5 @@
 {
-  "index_name": "docusaurus-github-io",
+  "index_name": "crawler_docusaurus-github-io",
   "start_urls": ["https://shiguredd.github.io/"],
   "sitemap_urls": [
     "https://shiguredd.github.io/sitemap.xml"

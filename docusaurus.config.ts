@@ -7,15 +7,7 @@ import 'dotenv/config';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const algoliaApiKey = process.env.ALGOLIA_API_KEY ?? '';
-const algoliaAppId = process.env.ALGOLIA_APP_ID ?? '';
-const algoliaConfig = algoliaApiKey && algoliaAppId
-  ? {
-      apiKey: algoliaApiKey,
-      indexName: 'docusaurus-github-io',
-      appId: algoliaAppId,
-      contextualSearch: true,
-    }
-  : undefined;
+const algoliaAppId = process.env.ALGOLIA_APPLICATION_ID ?? '';
 
 const config: Config = {
   title: 'ShigureDD\'s Blog',
@@ -104,7 +96,7 @@ const config: Config = {
           onInlineAuthors: 'ignore',  // Suppress warning about inline authors
           onUntruncatedBlogPosts: 'warn',
         },
-                sitemap: {
+        sitemap: {
           lastmod: 'date',
           changefreq: 'weekly',
           priority: 0.5,
@@ -264,7 +256,21 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
-    ...(algoliaConfig ? {algolia: algoliaConfig} : {}),
+    algolia: {
+      // The application ID provided by Algolia
+      appId: algoliaAppId,
+
+      // Public API key: it is safe to commit it to GitHub
+      apiKey: algoliaApiKey,
+
+      indexName: 'crawler_docusaurus-github-io',
+
+      // Optional: Ensures search results match the user's current language and version
+      contextualSearch: true,
+
+      // Optional: Whether the insights feature is enabled
+      insights: false,
+    },
   } satisfies Preset.ThemeConfig,
   markdown: {
     mermaid: true,
