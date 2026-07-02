@@ -52,14 +52,14 @@ jobs:
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
 
-      - name: Github-pages-MAIN => Algolia crawler creation and recrawl (Push on Main branch)
-        uses: algolia/algoliasearch-crawler-github-actions@v1
-        id: crawler_push
-        with:
-          crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
-          crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
-          algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
-          algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
-          site-url: "https://shiguredd.github.io/"
-          override-config: true
-          crawler-name: "crawler_docusaurus-github-io"
+      # - name: Github-pages-MAIN => Algolia crawler creation and recrawl (Push on Main branch)
+      #   uses: algolia/algoliasearch-crawler-github-actions@v1
+      #   id: crawler_push
+      #   with:
+      #     crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
+      #     crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
+      #     algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
+      #     algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
+      #     site-url: "https://shiguredd.github.io/"
+      #     override-config: true
+      #     crawler-name: "crawler_docusaurus-github-io"
