@@ -4,7 +4,7 @@ on:
   schedule:
     # At 04:00 on Monday
     - cron: "0 4 * * 1"
-  workflow_dispatch:
+  workflow_dispatch: # Manual trigger
 env:
   # The date of the first run of the action. It has to be set to a date that is on the same weekday as the cron.
   # 12/08/2025 is Monday, so the cron is set to run on Monday.
@@ -51,7 +51,7 @@ jobs:
         with:
           crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
           crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
-          algolia-app-id: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
           algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
           site-url: "https://shiguredd.github.io/"
           override-config: true

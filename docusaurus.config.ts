@@ -7,7 +7,7 @@ import 'dotenv/config';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const algoliaApiKey = process.env.ALGOLIA_API_KEY ?? '';
-const algoliaAppId = process.env.ALGOLIA_APPLICATION_ID ?? '';
+const algoliaAppId = process.env.ALGOLIA_APP_ID ?? '';
 
 const config: Config = {
   title: 'ShigureDD\'s Blog',
